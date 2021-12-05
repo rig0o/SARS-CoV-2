@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Database
 {
-    class DataRepository
+    public class DataRepository
     {
     }
 }

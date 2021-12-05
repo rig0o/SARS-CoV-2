@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Prediccion
 {
-    class Elman
+    [Serializable]
+    public class Elman
     {
 
         #region Atributos

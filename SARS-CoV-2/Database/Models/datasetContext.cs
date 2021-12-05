@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Database.Models
 {
-    class datasetContext : DbContext
+    public class datasetContext : DbContext
     {
         public DbSet<Dataset> Datasets { get; set; }
 

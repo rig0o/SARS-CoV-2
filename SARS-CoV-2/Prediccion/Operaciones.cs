@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Prediccion
 {
-    class Operaciones
+    public class Operaciones
     {
 
         #region Crear matrices o vectores

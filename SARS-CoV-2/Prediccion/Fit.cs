@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Prediccion
 {
-    class Fit
+    public class Fit
     {
-        static string rnnPath = Directory.GetCurrentDirectory().ToString() + @"\EntrenamientoElman.bin";
-        static public void fit()
+        private readonly string rnnPath = Directory.GetCurrentDirectory().ToString() + @"\EntrenamientoElman.bin";
+        public static void fit()
         {
 
             List<double[,]> datax;
@@ -26,7 +26,7 @@ namespace SARS_CoV_2.Prediccion
             */
             save(nn);
         }
-        static public void save(Elman nn)
+        public static void save(Elman nn)
         {
             FileStream fs = new FileStream(rnnPath, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
@@ -44,7 +44,7 @@ namespace SARS_CoV_2.Prediccion
                 fs.Close();
             }
         }
-        static public Elman load()
+        public static Elman load()
         {
             FileStream fs = new FileStream(rnnPath, FileMode.Open);
             Elman nn;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SARS_CoV_2.Database.Models
 {
-    class Dataset
+    public class Dataset
     {
         public DateTime Fecha { get; set; }
         public double? CnuevoTotales { get; set; }
