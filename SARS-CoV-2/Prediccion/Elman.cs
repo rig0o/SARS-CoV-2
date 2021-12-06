@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SARS_CoV_2.Database.Dto;
 
 namespace SARS_CoV_2.Prediccion
 {
@@ -44,7 +45,7 @@ namespace SARS_CoV_2.Prediccion
             Bo = Operaciones.RandomValues(output, 1);
         }
 
-        public Dictionary<int, double[,]> FeedForward(double[,] inputs)
+        public Dictionary<int, double[,]> FeedForward(List<DatasetDto> inputs)
         {
 
             var hiddenAnterior = Operaciones.RandomZeros(Bh.GetLength(0), 1);
@@ -56,10 +57,10 @@ namespace SARS_CoV_2.Prediccion
             ActsOut = new Dictionary<int, double[,]>(); // Pt
 
             ActsHid[-1] = hiddenAnterior;
-            for (int t = 0; t < inputs.GetLength(0); t++)  // TIME = t
+            for (int t = 0; t < inputs.Count; t++)  // TIME = t
             {
-                ActsInp[t] = Operaciones.Tranpuesta_t(inputs, t);  //Dim Input =  [x,1]
-
+                //ActsInp[t] = Operaciones.Tranpuesta_t(inputs, t);  //Dim Input =  [x,1]
+                ActsInp[t] = inputs[t].ToArry(); //Dim Input =  [x,1]
 
                 // Capa oculta
                 var fromInput = Operaciones.Mutiply(Whx, ActsInp[t]);          //Dim fromInput [h,1] Vector columna
@@ -79,7 +80,7 @@ namespace SARS_CoV_2.Prediccion
         }
 
         #region Entrenamiento
-        public bool Train(double alfa, double maxLoss, int numEpoch, int sequalLength, double[,] inputs, Dictionary<int, double[,]> target)
+        public bool Train(double alfa, double maxLoss, int numEpoch, int sequalLength, List<DatasetDto> inputs, Dictionary<int, double[,]> target)
         {
             double error = 9999;
 
@@ -95,7 +96,7 @@ namespace SARS_CoV_2.Prediccion
 
                 BPTT(inputs, target, alfa, sequalLength);
                 Dictionary<int, double[,]> estimado = FeedForward(inputs);
-                error = mse(estimado, target, inputs.GetLength(0));
+                error = mse(estimado, target, inputs.Count);
 
                 Console.WriteLine("-------------------------------------------" + numEpoch);
                 Console.WriteLine(" Error = " + error);
@@ -117,7 +118,7 @@ namespace SARS_CoV_2.Prediccion
             }
             return aux[0, 0] / cantidad;
         }
-        private void BPTT(double[,] inputs, Dictionary<int, double[,]> target, double alfa, int depth)
+        private void BPTT(List<DatasetDto> inputs, Dictionary<int, double[,]> target, double alfa, int depth)
         {
 
             _ = FeedForward(inputs);
@@ -130,7 +131,7 @@ namespace SARS_CoV_2.Prediccion
             double[,] dErrdWhx = Operaciones.RandomZeros(NumHidden, NumInput);
             double[,] dErrdBh = Operaciones.RandomZeros(NumHidden); // Vector columna
 
-            for (int t = 0; t < inputs.GetLength(0); t++)
+            for (int t = 0; t < inputs.Count; t++)
             {
 
                 // Vector columna [o,1] dError/dAct_salida * dAct_salida/dSum_salida
