@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SARS_CoV_2.Vista;
 using SARS_CoV_2.Database.Models;
+using SARS_CoV_2.Database;
+using System.Diagnostics;
+
 namespace SARS_CoV_2
 {
     static class Program
@@ -15,6 +18,13 @@ namespace SARS_CoV_2
         [STAThread]
         static void Main()
         {
+
+            //var repo = new DataRepository();
+
+            //foreach (var item in repo.GetDataGraph())
+            //{
+            //    Debug.WriteLine(item.Fecha);
+            //}
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
