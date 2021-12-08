@@ -11,7 +11,7 @@ namespace SARS_CoV_2.Prediccion
 {
     public class Fit
     {
-        private readonly string rnnPath = Directory.GetCurrentDirectory().ToString() + @"\EntrenamientoElman.bin";
+        static readonly string rnnPath = Directory.GetCurrentDirectory().ToString() + @"\EntrenamientoElman.bin";
         public static void fit()
         {
 
