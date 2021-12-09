@@ -34,5 +34,10 @@ namespace SARS_CoV_2.Vista
         {
             Application.Run(new VistaPrediccion());
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
