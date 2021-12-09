@@ -48,6 +48,7 @@ namespace SARS_CoV_2.Vista
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -253,11 +254,20 @@ namespace SARS_CoV_2.Vista
             this.panel2.Size = new System.Drawing.Size(672, 178);
             this.panel2.TabIndex = 13;
             // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 178);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(672, 272);
+            this.panel8.TabIndex = 14;
+            // 
             // VistaPrediccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "VistaPrediccion";
@@ -302,5 +312,6 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel8;
     }
 }
