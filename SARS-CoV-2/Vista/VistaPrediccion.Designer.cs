@@ -37,6 +37,7 @@ namespace SARS_CoV_2.Vista
             this.label4 = new System.Windows.Forms.Label();
             this.Grafico = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,36 @@ namespace SARS_CoV_2.Vista
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cklConurbacion = new System.Windows.Forms.CheckedListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.cklOvalle = new System.Windows.Forms.CheckedListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.cklIllapel = new System.Windows.Forms.CheckedListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.cklSalamanca = new System.Windows.Forms.CheckedListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.cklMontePatria = new System.Windows.Forms.CheckedListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.cklMovilidad = new System.Windows.Forms.CheckedListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.cklExcepcion = new System.Windows.Forms.CheckedListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.cklVariante = new System.Windows.Forms.CheckedListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.cklVacaciones = new System.Windows.Forms.CheckedListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -60,14 +90,26 @@ namespace SARS_CoV_2.Vista
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Entrenar
             // 
             this.Entrenar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Entrenar.Location = new System.Drawing.Point(0, 390);
+            this.Entrenar.Location = new System.Drawing.Point(0, 520);
+            this.Entrenar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Entrenar.Name = "Entrenar";
-            this.Entrenar.Size = new System.Drawing.Size(128, 30);
+            this.Entrenar.Size = new System.Drawing.Size(146, 40);
             this.Entrenar.TabIndex = 1;
             this.Entrenar.Text = "Entrenar Red";
             this.Entrenar.UseVisualStyleBackColor = true;
@@ -75,9 +117,10 @@ namespace SARS_CoV_2.Vista
             // Exportar
             // 
             this.Exportar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Exportar.Location = new System.Drawing.Point(0, 420);
+            this.Exportar.Location = new System.Drawing.Point(0, 560);
+            this.Exportar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exportar.Name = "Exportar";
-            this.Exportar.Size = new System.Drawing.Size(128, 30);
+            this.Exportar.Size = new System.Drawing.Size(146, 40);
             this.Exportar.TabIndex = 2;
             this.Exportar.Text = "Exportar Resultados";
             this.Exportar.UseVisualStyleBackColor = true;
@@ -86,9 +129,9 @@ namespace SARS_CoV_2.Vista
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(68, 0);
+            this.label1.Location = new System.Drawing.Point(70, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 30);
+            this.label1.Size = new System.Drawing.Size(76, 40);
             this.label1.TabIndex = 3;
             this.label1.Text = "Escenario \r\n    Real\r\n";
             // 
@@ -96,9 +139,9 @@ namespace SARS_CoV_2.Vista
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(65, 0);
+            this.label2.Location = new System.Drawing.Point(66, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 30);
+            this.label2.Size = new System.Drawing.Size(80, 40);
             this.label2.TabIndex = 4;
             this.label2.Text = " Escenario \r\n Optimista";
             // 
@@ -106,9 +149,9 @@ namespace SARS_CoV_2.Vista
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(65, 0);
+            this.label3.Location = new System.Drawing.Point(66, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 30);
+            this.label3.Size = new System.Drawing.Size(80, 40);
             this.label3.TabIndex = 5;
             this.label3.Text = " Escenario \r\n Pesimista";
             // 
@@ -116,18 +159,19 @@ namespace SARS_CoV_2.Vista
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(57, 0);
+            this.label4.Location = new System.Drawing.Point(56, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 30);
+            this.label4.Size = new System.Drawing.Size(90, 40);
             this.label4.TabIndex = 6;
             this.label4.Text = "   Escenario \r\n Modificado";
             // 
             // Grafico
             // 
             this.Grafico.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Grafico.Location = new System.Drawing.Point(0, 360);
+            this.Grafico.Location = new System.Drawing.Point(0, 480);
+            this.Grafico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Grafico.Name = "Grafico";
-            this.Grafico.Size = new System.Drawing.Size(128, 30);
+            this.Grafico.Size = new System.Drawing.Size(146, 40);
             this.Grafico.TabIndex = 11;
             this.Grafico.Text = "Graficar Predicción";
             this.Grafico.UseVisualStyleBackColor = true;
@@ -135,15 +179,26 @@ namespace SARS_CoV_2.Vista
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.Grafico);
             this.panel1.Controls.Add(this.Entrenar);
             this.panel1.Controls.Add(this.Exportar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(672, 0);
+            this.panel1.Location = new System.Drawing.Point(768, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(128, 450);
+            this.panel1.Size = new System.Drawing.Size(146, 600);
             this.panel1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 445);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 30);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Crear Escenario Modificados";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -153,8 +208,9 @@ namespace SARS_CoV_2.Vista
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(128, 178);
+            this.panel3.Size = new System.Drawing.Size(146, 237);
             this.panel3.TabIndex = 12;
             // 
             // panel5
@@ -162,9 +218,10 @@ namespace SARS_CoV_2.Vista
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 132);
+            this.panel5.Location = new System.Drawing.Point(0, 177);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(128, 44);
+            this.panel5.Size = new System.Drawing.Size(146, 59);
             this.panel5.TabIndex = 16;
             // 
             // pictureBox4
@@ -172,8 +229,9 @@ namespace SARS_CoV_2.Vista
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox4.Image = global::SARS_CoV_2.Properties.Resources.green;
             this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox4.Size = new System.Drawing.Size(67, 59);
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
             // 
@@ -182,9 +240,10 @@ namespace SARS_CoV_2.Vista
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.pictureBox3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 88);
+            this.panel6.Location = new System.Drawing.Point(0, 118);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(128, 44);
+            this.panel6.Size = new System.Drawing.Size(146, 59);
             this.panel6.TabIndex = 16;
             // 
             // pictureBox3
@@ -192,8 +251,9 @@ namespace SARS_CoV_2.Vista
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox3.Image = global::SARS_CoV_2.Properties.Resources.yellow;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(67, 59);
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
@@ -202,9 +262,10 @@ namespace SARS_CoV_2.Vista
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.pictureBox2);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 44);
+            this.panel7.Location = new System.Drawing.Point(0, 59);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(128, 44);
+            this.panel7.Size = new System.Drawing.Size(146, 59);
             this.panel7.TabIndex = 15;
             // 
             // pictureBox2
@@ -212,8 +273,9 @@ namespace SARS_CoV_2.Vista
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Image = global::SARS_CoV_2.Properties.Resources.blue;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(67, 59);
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
@@ -223,8 +285,9 @@ namespace SARS_CoV_2.Vista
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(128, 44);
+            this.panel4.Size = new System.Drawing.Size(146, 59);
             this.panel4.TabIndex = 16;
             // 
             // pictureBox1
@@ -232,8 +295,9 @@ namespace SARS_CoV_2.Vista
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = global::SARS_CoV_2.Properties.Resources.red;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(67, 59);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
@@ -241,8 +305,9 @@ namespace SARS_CoV_2.Vista
             // 
             this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Top;
             this.cartesianChart1.Location = new System.Drawing.Point(0, 0);
+            this.cartesianChart1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(672, 178);
+            this.cartesianChart1.Size = new System.Drawing.Size(768, 237);
             this.cartesianChart1.TabIndex = 0;
             // 
             // panel2
@@ -250,26 +315,338 @@ namespace SARS_CoV_2.Vista
             this.panel2.Controls.Add(this.cartesianChart1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(672, 178);
+            this.panel2.Size = new System.Drawing.Size(768, 237);
             this.panel2.TabIndex = 13;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.panel8);
+            this.flowLayoutPanel1.Controls.Add(this.panel9);
+            this.flowLayoutPanel1.Controls.Add(this.panel10);
+            this.flowLayoutPanel1.Controls.Add(this.panel11);
+            this.flowLayoutPanel1.Controls.Add(this.panel12);
+            this.flowLayoutPanel1.Controls.Add(this.panel14);
+            this.flowLayoutPanel1.Controls.Add(this.panel15);
+            this.flowLayoutPanel1.Controls.Add(this.panel16);
+            this.flowLayoutPanel1.Controls.Add(this.panel13);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 265);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(755, 295);
+            this.flowLayoutPanel1.TabIndex = 14;
             // 
             // panel8
             // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 178);
+            this.panel8.Controls.Add(this.cklConurbacion);
+            this.panel8.Controls.Add(this.label5);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(672, 272);
-            this.panel8.TabIndex = 14;
+            this.panel8.Size = new System.Drawing.Size(262, 125);
+            this.panel8.TabIndex = 0;
+            // 
+            // cklConurbacion
+            // 
+            this.cklConurbacion.FormattingEnabled = true;
+            this.cklConurbacion.Items.AddRange(new object[] {
+            "Fase 1",
+            "Fase 2",
+            "Fase 3",
+            "Fase 4"});
+            this.cklConurbacion.Location = new System.Drawing.Point(4, 24);
+            this.cklConurbacion.Name = "cklConurbacion";
+            this.cklConurbacion.Size = new System.Drawing.Size(90, 92);
+            this.cklConurbacion.TabIndex = 1;
+            this.cklConurbacion.SelectedIndexChanged += new System.EventHandler(this.cklConurbacion_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(-4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(264, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Plan Paso a Paso: La Serena/Coquimbo";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.cklOvalle);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(271, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(185, 125);
+            this.panel9.TabIndex = 1;
+            // 
+            // cklOvalle
+            // 
+            this.cklOvalle.FormattingEnabled = true;
+            this.cklOvalle.Items.AddRange(new object[] {
+            "Fase 1",
+            "Fase 2",
+            "Fase 3",
+            "Fase 4"});
+            this.cklOvalle.Location = new System.Drawing.Point(4, 28);
+            this.cklOvalle.Name = "cklOvalle";
+            this.cklOvalle.Size = new System.Drawing.Size(91, 92);
+            this.cklOvalle.TabIndex = 1;
+            this.cklOvalle.SelectedIndexChanged += new System.EventHandler(this.cklOvalle_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Plan Paso a Paso: Ovalle";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.cklIllapel);
+            this.panel10.Controls.Add(this.label7);
+            this.panel10.Location = new System.Drawing.Point(462, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(235, 125);
+            this.panel10.TabIndex = 2;
+            // 
+            // cklIllapel
+            // 
+            this.cklIllapel.FormattingEnabled = true;
+            this.cklIllapel.Items.AddRange(new object[] {
+            "Fase 1",
+            "Fase 2",
+            "Fase 3",
+            "Fase 4"});
+            this.cklIllapel.Location = new System.Drawing.Point(4, 28);
+            this.cklIllapel.Name = "cklIllapel";
+            this.cklIllapel.Size = new System.Drawing.Size(94, 92);
+            this.cklIllapel.TabIndex = 1;
+            this.cklIllapel.SelectedIndexChanged += new System.EventHandler(this.cklIllapel_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Plan Paso a Paso: Illapel";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.cklSalamanca);
+            this.panel11.Controls.Add(this.label8);
+            this.panel11.Location = new System.Drawing.Point(3, 134);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(260, 125);
+            this.panel11.TabIndex = 3;
+            // 
+            // cklSalamanca
+            // 
+            this.cklSalamanca.FormattingEnabled = true;
+            this.cklSalamanca.Items.AddRange(new object[] {
+            "Fase 1",
+            "Fase 2",
+            "Fase 3",
+            "Fase 4"});
+            this.cklSalamanca.Location = new System.Drawing.Point(4, 28);
+            this.cklSalamanca.Name = "cklSalamanca";
+            this.cklSalamanca.Size = new System.Drawing.Size(90, 92);
+            this.cklSalamanca.TabIndex = 1;
+            this.cklSalamanca.SelectedIndexChanged += new System.EventHandler(this.cklSalamanca_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(4, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(196, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Plan Paso a Paso: Salamanca";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.cklMontePatria);
+            this.panel12.Controls.Add(this.label9);
+            this.panel12.Location = new System.Drawing.Point(269, 134);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(218, 125);
+            this.panel12.TabIndex = 4;
+            // 
+            // cklMontePatria
+            // 
+            this.cklMontePatria.FormattingEnabled = true;
+            this.cklMontePatria.Items.AddRange(new object[] {
+            "Fase 1",
+            "Fase 2",
+            "Fase 3",
+            "Fase 4"});
+            this.cklMontePatria.Location = new System.Drawing.Point(6, 28);
+            this.cklMontePatria.Name = "cklMontePatria";
+            this.cklMontePatria.Size = new System.Drawing.Size(91, 92);
+            this.cklMontePatria.TabIndex = 1;
+            this.cklMontePatria.SelectedIndexChanged += new System.EventHandler(this.cklMontePatria_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(208, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Plan Paso a Paso: Monte Patria";
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.cklMovilidad);
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Location = new System.Drawing.Point(493, 134);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(204, 125);
+            this.panel14.TabIndex = 6;
+            // 
+            // cklMovilidad
+            // 
+            this.cklMovilidad.FormattingEnabled = true;
+            this.cklMovilidad.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cklMovilidad.Location = new System.Drawing.Point(4, 28);
+            this.cklMovilidad.Name = "cklMovilidad";
+            this.cklMovilidad.Size = new System.Drawing.Size(64, 48);
+            this.cklMovilidad.TabIndex = 1;
+            this.cklMovilidad.SelectedIndexChanged += new System.EventHandler(this.cklMovilidad_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(4, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(130, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Pase de Movilidad";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.cklExcepcion);
+            this.panel15.Controls.Add(this.label12);
+            this.panel15.Location = new System.Drawing.Point(3, 265);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(262, 125);
+            this.panel15.TabIndex = 7;
+            // 
+            // cklExcepcion
+            // 
+            this.cklExcepcion.FormattingEnabled = true;
+            this.cklExcepcion.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cklExcepcion.Location = new System.Drawing.Point(4, 28);
+            this.cklExcepcion.Name = "cklExcepcion";
+            this.cklExcepcion.Size = new System.Drawing.Size(90, 48);
+            this.cklExcepcion.TabIndex = 1;
+            this.cklExcepcion.SelectedIndexChanged += new System.EventHandler(this.cklExcepcion_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 4);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(146, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Estado de Excepcion";
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.cklVariante);
+            this.panel16.Controls.Add(this.label13);
+            this.panel16.Location = new System.Drawing.Point(271, 265);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(216, 125);
+            this.panel16.TabIndex = 8;
+            // 
+            // cklVariante
+            // 
+            this.cklVariante.FormattingEnabled = true;
+            this.cklVariante.Items.AddRange(new object[] {
+            "Alpha",
+            "Gamma",
+            "Delta",
+            "Original"});
+            this.cklVariante.Location = new System.Drawing.Point(0, 28);
+            this.cklVariante.Name = "cklVariante";
+            this.cklVariante.Size = new System.Drawing.Size(95, 92);
+            this.cklVariante.TabIndex = 1;
+            this.cklVariante.SelectedIndexChanged += new System.EventHandler(this.cklVariante_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 4);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(160, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Variante Predominante";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.cklVacaciones);
+            this.panel13.Controls.Add(this.label10);
+            this.panel13.Location = new System.Drawing.Point(3, 396);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(302, 125);
+            this.panel13.TabIndex = 5;
+            // 
+            // cklVacaciones
+            // 
+            this.cklVacaciones.FormattingEnabled = true;
+            this.cklVacaciones.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cklVacaciones.Location = new System.Drawing.Point(4, 28);
+            this.cklVacaciones.Name = "cklVacaciones";
+            this.cklVacaciones.Size = new System.Drawing.Size(90, 48);
+            this.cklVacaciones.TabIndex = 1;
+            this.cklVacaciones.SelectedIndexChanged += new System.EventHandler(this.cklVacaciones_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(4, 4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(296, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Implementacion del Permiso de Vacaciones";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnVolver);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(13, 566);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(749, 34);
+            this.flowLayoutPanel2.TabIndex = 15;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(3, 3);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(94, 29);
+            this.btnVolver.TabIndex = 0;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // VistaPrediccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel8);
+            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VistaPrediccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prediccion";
@@ -288,6 +665,26 @@ namespace SARS_CoV_2.Vista
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -312,6 +709,36 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.CheckedListBox cklConurbacion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.CheckedListBox cklOvalle;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.CheckedListBox cklIllapel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.CheckedListBox cklSalamanca;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.CheckedListBox cklMontePatria;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.CheckedListBox cklMovilidad;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.CheckedListBox cklVacaciones;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.CheckedListBox cklExcepcion;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckedListBox cklVariante;
+        private System.Windows.Forms.Button button1;
     }
 }
