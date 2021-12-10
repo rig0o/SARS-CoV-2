@@ -23,21 +23,30 @@ namespace SARS_CoV_2.Vista
         {
             //this.Hide();
             this.Close();
-            th = new Thread(openNewform);
+            th = new Thread(openNewformPrediccion);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
 
             //VistaPrediccion ventana2 = new VistaPrediccion();
             //ventana2.Show();
         }
-        private void openNewform(object obj)
-        {
-            Application.Run(new VistaPrediccion());
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Close();
+            th = new Thread(openNewformHistorial);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
 
+        private void openNewformHistorial(object obj)
+        {
+            Application.Run(new VistaHistorialContagios());
+        }
+
+        private void openNewformPrediccion(object obj)
+        {
+            Application.Run(new VistaPrediccion());
         }
     }
 }
