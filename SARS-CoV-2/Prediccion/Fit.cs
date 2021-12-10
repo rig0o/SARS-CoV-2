@@ -20,8 +20,9 @@ namespace SARS_CoV_2.Prediccion
             List<DatasetDto> datax = repo.GetDataTrain();
             List<GraficoDto> datay = repo.GetDataTarget();
 
-            Elman nn = new Elman(4, 6, 4);
+            Elman nn = new Elman(26, 13, 1);
 
+                            //ALFA(lr) - Error - Epoca - Deep
             while (!nn.Train(0.025, 0.0009, 20000, 5, datax, datay))
             {
                 nn = new Elman(26, 13, 1);

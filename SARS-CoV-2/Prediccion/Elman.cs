@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,17 +86,15 @@ namespace SARS_CoV_2.Prediccion
                 error = MSE(prediccion, target);
 
 
-                if (error < maxLoss)
-                    return true;
+                if (error < maxLoss) return true;
 
-                    if (epoch % 10 == 0)
-                        Console.WriteLine("Epoca :" + epoch + " Error = " + error);
+                if (epoch % 10 == 0) Debug.WriteLine("Epoca :" + epoch + " Error = " + error);
             }
 
-            Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("  Minimo Local  :" + error);
-            Console.WriteLine("  Se procede a reinicar el entrenamiento");
-            Console.WriteLine("----------------------------------------------");
+            Debug.WriteLine("----------------------------------------------");
+            Debug.WriteLine("  Minimo Local  :" + error);
+            Debug.WriteLine("  Se procede a reinicar el entrenamiento");
+            Debug.WriteLine("----------------------------------------------");
             return false;
         }
         private double MSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
