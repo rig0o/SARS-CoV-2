@@ -67,7 +67,7 @@ namespace SARS_CoV_2.Vista
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(845, 46);
             this.button2.TabIndex = 1;
-            this.button2.Text = "????";
+            this.button2.Text = "Historial de Contagios";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -82,7 +82,7 @@ namespace SARS_CoV_2.Vista
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::SARS_CoV_2.Properties.Resources.SARS_CoV_2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";

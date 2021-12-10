@@ -190,11 +190,12 @@ namespace SARS_CoV_2.Vista
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 382);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(0, 374);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 30);
+            this.button1.Size = new System.Drawing.Size(128, 38);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Crear Escenario Modificados";
+            this.button1.Text = "Escenario Modificados";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // panel3

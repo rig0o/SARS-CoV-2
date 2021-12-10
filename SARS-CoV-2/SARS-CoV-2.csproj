@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon />
     <StartupObject></StartupObject>
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>
