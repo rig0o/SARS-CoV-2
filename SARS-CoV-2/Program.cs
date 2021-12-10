@@ -19,7 +19,8 @@ namespace SARS_CoV_2
         [STAThread]
         static void Main()
         {
-            Fit.fit();
+            //Fit.fit();
+
             //var rnn = Fit.Load();
 
             //DataRepository repo = new DataRepository();
@@ -33,10 +34,10 @@ namespace SARS_CoV_2
             //    Debug.WriteLine(DataRepository.DesNorm(salida[i][0, 0]));
             //}
 
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new VistaPrediccion());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new VistaPrediccion());
 
         }
     }

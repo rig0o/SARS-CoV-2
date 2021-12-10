@@ -53,17 +53,6 @@ namespace SARS_CoV_2.Vista
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cklConurbacion = new System.Windows.Forms.CheckedListBox();
@@ -109,7 +98,6 @@ namespace SARS_CoV_2.Vista
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -198,9 +186,9 @@ namespace SARS_CoV_2.Vista
             this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(717, 0);
+            this.panel1.Location = new System.Drawing.Point(2295, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(128, 658);
+            this.panel1.Size = new System.Drawing.Size(128, 881);
             this.panel1.TabIndex = 12;
             // 
             // panel20
@@ -346,96 +334,18 @@ namespace SARS_CoV_2.Vista
             this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Top;
             this.cartesianChart1.Location = new System.Drawing.Point(0, 0);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(717, 209);
+            this.cartesianChart1.Size = new System.Drawing.Size(2295, 464);
             this.cartesianChart1.TabIndex = 0;
+            this.cartesianChart1.Load += new System.EventHandler(this.cartesianChart1_Load);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.cartesianChart1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(717, 306);
+            this.panel2.Size = new System.Drawing.Size(2295, 531);
             this.panel2.TabIndex = 13;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 215);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(717, 91);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Día 1";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Día 2";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Día 3";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Día 4";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Día 5";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Día 6";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Día 7";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Día 8";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Día 9";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Día 10";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
             // flowLayoutPanel1
             // 
@@ -451,10 +361,10 @@ namespace SARS_CoV_2.Vista
             this.flowLayoutPanel1.Controls.Add(this.panel13);
             this.flowLayoutPanel1.Controls.Add(this.btnVolver);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 311);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 534);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(717, 347);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(2295, 347);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // panel8
@@ -570,7 +480,7 @@ namespace SARS_CoV_2.Vista
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel11.Controls.Add(this.cklSalamanca);
             this.panel11.Controls.Add(this.label8);
-            this.panel11.Location = new System.Drawing.Point(3, 109);
+            this.panel11.Location = new System.Drawing.Point(706, 2);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(228, 103);
@@ -606,7 +516,7 @@ namespace SARS_CoV_2.Vista
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.cklMontePatria);
             this.panel12.Controls.Add(this.label9);
-            this.panel12.Location = new System.Drawing.Point(237, 109);
+            this.panel12.Location = new System.Drawing.Point(940, 2);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(191, 107);
@@ -642,7 +552,7 @@ namespace SARS_CoV_2.Vista
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel14.Controls.Add(this.label13);
             this.panel14.Controls.Add(this.cklVariante);
-            this.panel14.Location = new System.Drawing.Point(434, 109);
+            this.panel14.Location = new System.Drawing.Point(1137, 2);
             this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(266, 107);
@@ -678,7 +588,7 @@ namespace SARS_CoV_2.Vista
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel15.Controls.Add(this.cklExcepcion);
             this.panel15.Controls.Add(this.label12);
-            this.panel15.Location = new System.Drawing.Point(3, 220);
+            this.panel15.Location = new System.Drawing.Point(1409, 2);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(229, 99);
@@ -712,7 +622,7 @@ namespace SARS_CoV_2.Vista
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel16.Controls.Add(this.label11);
             this.panel16.Controls.Add(this.cklMovilidad);
-            this.panel16.Location = new System.Drawing.Point(238, 220);
+            this.panel16.Location = new System.Drawing.Point(1644, 2);
             this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(189, 99);
@@ -746,7 +656,7 @@ namespace SARS_CoV_2.Vista
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel13.Controls.Add(this.cklVacaciones);
             this.panel13.Controls.Add(this.label10);
-            this.panel13.Location = new System.Drawing.Point(433, 220);
+            this.panel13.Location = new System.Drawing.Point(1839, 2);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(267, 99);
@@ -778,7 +688,7 @@ namespace SARS_CoV_2.Vista
             // btnVolver
             // 
             this.btnVolver.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnVolver.Location = new System.Drawing.Point(3, 323);
+            this.btnVolver.Location = new System.Drawing.Point(2112, 87);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(82, 22);
@@ -798,7 +708,7 @@ namespace SARS_CoV_2.Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 658);
+            this.ClientSize = new System.Drawing.Size(2423, 881);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -824,7 +734,6 @@ namespace SARS_CoV_2.Vista
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -898,21 +807,10 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckedListBox cklVariante;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }

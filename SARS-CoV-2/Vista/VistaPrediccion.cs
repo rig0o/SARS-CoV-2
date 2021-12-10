@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SARS_CoV_2.Database;
 using LiveChartsCore.Defaults;
+using LiveChartsCore.Measure;
 
 namespace SARS_CoV_2.Vista
 {
@@ -31,37 +32,44 @@ namespace SARS_CoV_2.Vista
         private void InitCartesianChart()
         {
             DataRepository repo = new();
+            cartesianChart1.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
+            //cartesianChart1.LegendPosition = LegendPosition.Right;
             cartesianChart1.Series = new ObservableCollection<ISeries>
             {
                 new LineSeries<DateTimePoint>
                 {
-                    Values = repo.GetDataGraph()
+                    Name = "Contagios totales",
+                    LineSmoothness = 1,
+                    Values = repo.GetDataGraph(),
+                    Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
+                    GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                    GeometrySize = 0,
+                    Fill = null
                 }
             };
+            cartesianChart1.XAxes = new List<Axis>
+            {
+                new Axis
+                {
+                    Labeler = value => new DateTime((long)value).ToString("dd/ MMMM /yyyy"),
+                    LabelsRotation = 15,
 
-            //cartesianChart1.XAxes = new List<Axis>
-            //{
-            //    new Axis
-            //    {
-            //        Labeler = value => new DateTime((long)value).ToString("MMMM dd"),
-            //        LabelsRotation = 15,
+                    // in this case we want our columns with a width of 1 day, we can get that number
+                    // using the following syntax
+                    UnitWidth = TimeSpan.FromDays(1).Ticks,
 
-            //        // in this case we want our columns with a width of 1 day, we can get that number
-            //        // using the following syntax
-            //        UnitWidth = TimeSpan.FromDays(7).Ticks,
+                    // The MinStep property forces the separator to be greater than 1 day.
+                    MinStep = TimeSpan.FromDays(1).Ticks
 
-            //        // The MinStep property forces the separator to be greater than 1 day.
-            //        MinStep = TimeSpan.FromDays(7).Ticks
+                    // if the difference between our points is in hours then we would:
+                    // UnitWidth = TimeSpan.FromHours(1).Ticks,
 
-            //        // if the difference between our points is in hours then we would:
-            //        // UnitWidth = TimeSpan.FromHours(1).Ticks,
-
-            //        // since all the months and years have a different number of days
-            //        // we can use the average, it would not cause any visible error in the user interface
-            //        // Months: TimeSpan.FromDays(30.4375).Ticks
-            //        // Years: TimeSpan.FromDays(365.25).Ticks
-            //    }
-            //};
+                    // since all the months and years have a different number of days
+                    // we can use the average, it would not cause any visible error in the user interface
+                    // Months: TimeSpan.FromDays(30.4375).Ticks
+                    // Years: TimeSpan.FromDays(365.25).Ticks
+                }
+            };
         }
         private void Grafico_Click(object sender, EventArgs e)
         {
@@ -203,6 +211,11 @@ namespace SARS_CoV_2.Vista
             {
                 cklVacaciones.SetItemCheckState(i, CheckState.Unchecked);
             }
+        }
+
+        private void cartesianChart1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
