@@ -9,21 +9,12 @@ namespace SARS_CoV_2.Database.Dto
     public class DatasetDto
     {
         public DateTime Fecha { get; set; }
-
-        
-        public double? CnuevoTotales { get; set; }
-        //salta
-        //public double? CnuevoSinNotificar { get; set; }
-        //public double? CconfirmadosRecuperados { get; set; }
-        //public double? CactivosConfirmados { get; set; }
-        //public double? CactivosProbables { get; set; }
-        //public double? CsospechaReinfeccion { get; set; }
-        //aca
+        public double? CnuevoTotales { get; set; } 
+        public double? CconfirmadosRecuperados { get; set; }
+        public double? CactivosConfirmados { get; set; }
+        public double? CactivosProbables { get; set; }
+        public double? CsospechaReinfeccion { get; set; }
         public double? PcrDiarios { get; set; }
-        //salta
-        //public double? CnuevosConSintomas { get; set; }
-        //public double? CnuevosSinSintomas { get; set; }
-        // aca
         public double? MediaMovil { get; set; }
         public double? Refectivo { get; set; }
         public double? PositividadPcr { get; set; }
@@ -48,7 +39,11 @@ namespace SARS_CoV_2.Database.Dto
         public double[,] ToArry()
         {
             double[,] output = { 
-                { (double)CnuevoTotales }, 
+                { (double)CnuevoTotales },
+                { (double)CconfirmadosRecuperados},
+                { (double)CactivosConfirmados },
+                { (double)CactivosProbables },
+                { (double)CsospechaReinfeccion },
                 { (double)PcrDiarios }, 
                 { (double)MediaMovil },
                 { (double)Refectivo },

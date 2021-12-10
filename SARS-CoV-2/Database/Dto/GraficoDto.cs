@@ -10,5 +10,11 @@ namespace SARS_CoV_2.Database.Dto
     {
         public DateTime Fecha { get; set; }
         public double? CnuevoTotales { get; set; }
+
+        internal double[,] ToArry()
+        {
+            double[,] output = { { (double)CnuevoTotales } };
+            return output;
+        }
     }
 }
