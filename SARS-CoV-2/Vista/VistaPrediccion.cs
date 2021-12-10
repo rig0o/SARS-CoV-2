@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SARS_CoV_2.Database;
 namespace SARS_CoV_2.Vista
 {
     public partial class VistaPrediccion : Form
@@ -21,8 +21,14 @@ namespace SARS_CoV_2.Vista
         public VistaPrediccion()
         {
             InitializeComponent();
+            InitCartesianChart();
         }
 
+        private void InitCartesianChart()
+        {
+            DataRepository repo = new();
+            //cartesianChart1.Series;
+        }
         private void Grafico_Click(object sender, EventArgs e)
         {
             cartesianChart1.Series = new ObservableCollection<ISeries>
