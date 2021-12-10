@@ -7,6 +7,7 @@ using SARS_CoV_2.Vista;
 using SARS_CoV_2.Database.Models;
 using SARS_CoV_2.Database;
 using System.Diagnostics;
+using SARS_CoV_2.Prediccion;
 
 namespace SARS_CoV_2
 {
@@ -18,18 +19,24 @@ namespace SARS_CoV_2
         [STAThread]
         static void Main()
         {
+            Fit.fit();
+            //var rnn = Fit.Load();
 
-            //var repo = new DataRepository();
+            //DataRepository repo = new DataRepository();
 
-            //foreach (var item in repo.GetDataGraph())
+            //var lst = repo.GetDataForward();
+
+            //var salida = rnn.FeedForward(lst);
+
+            //for (int i = 0; i < salida.Count; i++)
             //{
-            //    Debug.WriteLine(item.Fecha);
+            //    Debug.WriteLine(DataRepository.DesNorm(salida[i][0, 0]));
             //}
 
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VistaPrediccion());
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new VistaPrediccion());
 
         }
     }
