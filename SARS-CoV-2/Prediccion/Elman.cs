@@ -10,12 +10,10 @@ namespace SARS_CoV_2.Prediccion
     [Serializable]
     public class Elman
     {
-
         #region Atributos
         public int NumInput { get; set; }
         public int NumHidden { get; set; }
         public int NumOutput { get; set; }
-
         public double[,] Whx { get; set; }
         public double[,] Whh { get; set; }
         public double[,] Woh { get; set; }
@@ -23,10 +21,10 @@ namespace SARS_CoV_2.Prediccion
         public double[,] Bo { get; set; }
 
         private Dictionary<int, double[,]> ActsInp;       // Inputs          Vector columna
-        private Dictionary<int, double[,]> SumsHid;       // Sumatoria Zt  Vector columna
+        private Dictionary<int, double[,]> SumsHid;       // Sumatoria Zt    Vector columna
         private Dictionary<int, double[,]> ActsHid;       // Activacion Ht   Vector columna
         private Dictionary<int, double[,]> SumsOut;       // Sumatoria  Yt   Vector columna
-        private Dictionary<int, double[,]> ActsOut;       // Activacion Pt      Vector columna
+        private Dictionary<int, double[,]> ActsOut;       // Activacion Pt   Vector columna
         #endregion
 
         public Elman(int input, int hidden, int output)
@@ -34,8 +32,6 @@ namespace SARS_CoV_2.Prediccion
             this.NumInput = input;
             this.NumHidden = hidden;
             this.NumOutput = output;
-
-            Operaciones init = new Operaciones();
 
             Whx = Operaciones.RandomValues(hidden, input);
             Whh = Operaciones.RandomValues(hidden, hidden);
@@ -47,8 +43,7 @@ namespace SARS_CoV_2.Prediccion
 
         public Dictionary<int, double[,]> FeedForward(List<DatasetDto> inputs)
         {
-
-            var hiddenAnterior = Operaciones.RandomZeros(Bh.GetLength(0), 1);
+            var hiddenAnterior = Operaciones.RandomZeros(NumHidden);
 
             ActsInp = new Dictionary<int, double[,]>();
             SumsHid = new Dictionary<int, double[,]>(); // Zt 
@@ -57,143 +52,122 @@ namespace SARS_CoV_2.Prediccion
             ActsOut = new Dictionary<int, double[,]>(); // Pt
 
             ActsHid[-1] = hiddenAnterior;
-            for (int t = 0; t < inputs.Count; t++)  // TIME = t
+            for (int t = 0; t < inputs.Count; t++) //  t max 461 2021-11-01
             {
-                //ActsInp[t] = Operaciones.Tranpuesta_t(inputs, t);  //Dim Input =  [x,1]
                 ActsInp[t] = inputs[t].ToArry(); //Dim Input =  [x,1]
 
                 // Capa oculta
-                var fromInput = Operaciones.Mutiply(Whx, ActsInp[t]);          //Dim fromInput [h,1] Vector columna
-                var fromHidden = Operaciones.Mutiply(Whh, ActsHid[t - 1]);     //Dim fromHidden[h,1] Vector columna 
-                var wxh = Operaciones.Add(fromInput, fromHidden);             //Dim [h,1] =  Vector columna
+                var fromInput = Operaciones.Mutiply(Whx, ActsInp[t]);    
+                var fromHidden = Operaciones.Mutiply(Whh, ActsHid[t - 1]);
+                var wxh = Operaciones.Add(fromInput, fromHidden);           
 
-                SumsHid[t] = Operaciones.Add(wxh, Bh);                          // Dim [h,1] Vector columna                         
-                ActsHid[t] = Operaciones.Sigmoid(SumsHid[t]);                  // Dim [h,1] = A([h,1])    Vector columna                     
+                SumsHid[t] = Operaciones.Add(wxh, Bh);                    // [h,1] Vector columna           
+                ActsHid[t] = Operaciones.Sigmoid(SumsHid[t]);             // [h,1] Vector columna                        
 
 
                 // Capa de salida
-                var wxy = Operaciones.Mutiply(Woh, ActsHid[t]);           // Dim  [o,1]   Vector columna
-                SumsOut[t] = Operaciones.Add(wxy, Bo);                    // Dim  [o,1]   Vector columna
-                ActsOut[t] = Operaciones.Sigmoid(SumsOut[t]);             // Dim  [o,1] = A([o,1])  Vector columna
+                var wxy = Operaciones.Mutiply(Woh, ActsHid[t]);           
+                SumsOut[t] = Operaciones.Add(wxy, Bo);                    // [o,1] Vector columna
+                ActsOut[t] = Operaciones.Sigmoid(SumsOut[t]);             // [o,1] Vector columna
             }
             return ActsOut;
         }
 
         #region Entrenamiento
-        public bool Train(double alfa, double maxLoss, int numEpoch, int sequalLength, List<DatasetDto> inputs, Dictionary<int, double[,]> target)
+        public bool Train(double alfa, double maxLoss, int maxEpoch, int deep, List<DatasetDto> inputs, List<GraficoDto> target)
         {
             double error = 9999;
 
-            while (error > maxLoss)
+            for (int epoch = 0; epoch < maxEpoch; epoch++)
             {
-                numEpoch--;
-                if (numEpoch <= 0)
-                {
-                    Console.WriteLine("---------------------Minimo local-------------------------");
-                    Console.WriteLine(error);
-                    return false;
-                }
-
-                BPTT(inputs, target, alfa, sequalLength);
-                Dictionary<int, double[,]> estimado = FeedForward(inputs);
-                error = mse(estimado, target, inputs.Count);
-
-                Console.WriteLine("-------------------------------------------" + numEpoch);
-                Console.WriteLine(" Error = " + error);
+                BPTT(inputs, target, alfa, deep);
+                var prediccion = FeedForward(inputs);
+                error = MSE(prediccion, target);
 
 
+                if (error < maxLoss)
+                    return true;
+
+                    if (epoch % 10 == 0)
+                        Console.WriteLine("Epoca :" + epoch + " Error = " + error);
             }
-            return true;
+
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine("  Minimo Local  :" + error);
+            Console.WriteLine("  Se procede a reinicar el entrenamiento");
+            Console.WriteLine("----------------------------------------------");
+            return false;
         }
-        private double mse(Dictionary<int, double[,]> estimado, Dictionary<int, double[,]> target, int cantidad)
+        private double MSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
         {
             Dictionary<int, double[,]> error = new Dictionary<int, double[,]>();
-            double[,] aux = Operaciones.RandomZeros(estimado[0].GetLength(0));
+            double[,] auxError = Operaciones.RandomZeros(NumOutput);
 
-            for (int i = 0; i < cantidad; i++)
+            for (int i = 0; i < estimado.Count; i++)
             {
-                error[i] = Operaciones.Pow(Operaciones.Sub(estimado[i], target[i]), 2);
-                aux = Operaciones.Add(aux, error[i]);
+                error[i] = Operaciones.Pow(Operaciones.Sub(estimado[i], target[i+10].ToArry()), 2);
+                auxError = Operaciones.Add(auxError, error[i]);
 
             }
-            return aux[0, 0] / cantidad;
+            return auxError[0, 0] / estimado.Count;
         }
-        private void BPTT(List<DatasetDto> inputs, Dictionary<int, double[,]> target, double alfa, int depth)
+        private void BPTT(List<DatasetDto> inputs, List<GraficoDto> target, double alfa, int depth)
         {
+            double[,] dErrdWoh;
+            double[,] dErrdBo;
+            double[,] dErrdWhh;
+            double[,] dErrdWhx;
+            double[,] dErrdBh;
 
-            _ = FeedForward(inputs);
-
-            double[,] dErrdWoh = Operaciones.RandomZeros(NumOutput, NumHidden);
-            double[,] dErrdBo = Operaciones.RandomZeros(NumOutput); //Vector columna
-
-
-            double[,] dErrdWhh = Operaciones.RandomZeros(NumHidden, NumHidden);
-            double[,] dErrdWhx = Operaciones.RandomZeros(NumHidden, NumInput);
-            double[,] dErrdBh = Operaciones.RandomZeros(NumHidden); // Vector columna
+            var salida = FeedForward(inputs);
 
             for (int t = 0; t < inputs.Count; t++)
             {
 
-                // Vector columna [o,1] dError/dAct_salida * dAct_salida/dSum_salida
-                var outError = GetOutError(ActsOut[t], target[t], SumsOut[t]);
+                var outError = GetOutError(ActsOut[t], target[t+10].ToArry(), SumsOut[t]);
 
-                //(dError/dSum_Salida) * (dSum_Salida/dWoh)   [o,1] * [h,1]      [o,1]*[1,h]= [o,h]
                 dErrdWoh = Operaciones.GetOuterVec(outError, ActsHid[t]);
+                this.Woh = Update(this.Woh, dErrdWoh, alfa);
 
-                //(dError/dSum_Salida) * (dSum_Salida/dBo)
-                // [O,1] = [O,1]
                 dErrdBo = outError;
+                this.Bo = Update(this.Bo, dErrdBo, alfa);
 
-                // dSum_hidden/dAct_hidden * dAct_hidden/dSum_hidden
-                // [h,1]  Vector columna
                 var hiddenError = GetError(outError, Woh, SumsHid[t]);
 
 
                 for (int k = 0; k < depth && t - k > 0; k++)
                 {
-                    // Ultima derivada  dSum_hidden_k/ dPesosWhh  - Cuando Ht toma t = -1, la derivada se hace 0.
 
-                    // [h,h]
-                    dErrdWhh = Operaciones.Add(dErrdWhh, Operaciones.GetOuterVec(hiddenError, ActsHid[t - k - 1]));
+                    dErrdWhh = Operaciones.GetOuterVec(hiddenError, ActsHid[t - k - 1]);
+                    this.Whh = Update(this.Whh, dErrdWhh, alfa);
 
+                    dErrdWhx = Operaciones.GetOuterVec(hiddenError, ActsInp[t - k]);
+                    this.Whx = Update(this.Whx, dErrdWhx, alfa);
 
-                    //  [h,x]
-                    dErrdWhx = Operaciones.Add(dErrdWhx, Operaciones.GetOuterVec(hiddenError, ActsInp[t - k]));
-
-                    // dSumatoria_hidden/dBias_hidden    [1,1] +[1,1]
-                    dErrdBh = Operaciones.Add(dErrdBh, hiddenError);
-
-                    // dError/dSum_hidden  dSum_hidden/dSum_hidden()
-                    // [h,1]
+                    dErrdBh = hiddenError;
+                    this.Bh = Update(this.Bh, dErrdBh, alfa);
+                    
                     hiddenError = GetError(hiddenError, Whh, SumsHid[t - k - 1]);
-                }
-                UpdateWoh(dErrdWoh, alfa);
-                UpdateBo(dErrdBo, alfa);
-
-                if (t > 0)
-                {
-                    UpdateWhh(dErrdWhh, alfa);
-                    UpdateWhx(dErrdWhx, alfa);
-                    UpdateBh(dErrdBh, alfa);
                 }
             }
         }
         private double[,] GetError(double[,] outError, double[,] pesos, double[,] sumHidden)
         {
             var wT = Operaciones.T(pesos);
-            // [h,1]=[h,o]*[o,1]  Caso capa salida
-            // [h,1]=[h,h]*[h,1]  Caso capa oculta
             var propagated = Operaciones.Mutiply(wT, outError);
-            // [h,1]*[h,1]  Multiplicacion de cada elemento
             return Operaciones.GetMulElemVec(propagated, Operaciones.DSigmoid(sumHidden));
         }
         private double[,] GetOutError(double[,] salida, double[,] target, double[,] sumOut)
         {
             //[o,1]
             double[,] error = Operaciones.Sub(salida, target);
-            // Retorna vector columna de la multiplicacion de dos vectores columnas
             return Operaciones.GetMulElemVec(error, Operaciones.DSigmoid(sumOut));
 
+        }
+        private double[,] Update(double[,] actualiza, double[,] derivada, double alfa)
+        {
+            double[,] n = Operaciones.MutiplyEscalar(derivada, alfa);
+            return Operaciones.Sub(actualiza, n);
         }
         private void UpdateWoh(double[,] dErrdOh, double alfa)
         {

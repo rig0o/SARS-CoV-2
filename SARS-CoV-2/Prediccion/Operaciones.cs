@@ -138,15 +138,6 @@ namespace SARS_CoV_2.Prediccion
                 return null;
             }
         }
-        public static double[,] Tranpuesta_t(double[,] x, int t)
-        {
-            double[,] z = new double[x.GetLength(1), 1];
-            for (int i = 0; i < x.GetLength(1); i++)
-            {
-                z[i, 0] = x[t, i];
-            }
-            return z;
-        }
         public static double[,] MutiplyEscalar(double[,] dErrdOh, double alfa)
         {
             int row = dErrdOh.GetLength(0);

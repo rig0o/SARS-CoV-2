@@ -17,19 +17,19 @@ namespace SARS_CoV_2.Prediccion
         public static void fit()
         {
             DataRepository repo = new DataRepository();
-
             List<DatasetDto> datax = repo.GetDataTrain();
-            IEnumerable<double[,]> datay;
+            List<GraficoDto> datay = repo.GetDataTarget();
+
             Elman nn = new Elman(4, 6, 4);
-            /*
-            while (!red.Train(0.09,0.01,1000,10,datax, datay)) 
+
+            while (!nn.Train(0.025, 0.0009, 20000, 5, datax, datay))
             {
-                
+                nn = new Elman(26, 13, 1);
             }
-            */
-            save(nn);
+
+            Save(nn);
         }
-        public static void save(Elman nn)
+        public static void Save(Elman nn)
         {
             FileStream fs = new FileStream(rnnPath, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
@@ -39,7 +39,7 @@ namespace SARS_CoV_2.Prediccion
             }
             catch (SerializationException e)
             {
-                Console.WriteLine("No se pudo serializar, motivo: " + e.Message);
+                Console.WriteLine("No se puede guardar la red, motivo: " + e.Message);
                 throw;
             }
             finally
@@ -47,7 +47,7 @@ namespace SARS_CoV_2.Prediccion
                 fs.Close();
             }
         }
-        public static Elman load()
+        public static Elman Load()
         {
             FileStream fs = new FileStream(rnnPath, FileMode.Open);
             Elman nn;
@@ -58,7 +58,7 @@ namespace SARS_CoV_2.Prediccion
             }
             catch (SerializationException e)
             {
-                Console.WriteLine("Error en deserializacion, motivo :" + e.Message);
+                Console.WriteLine("Error en la carga de la red, motivo :" + e.Message);
                 throw;
             }
             finally
