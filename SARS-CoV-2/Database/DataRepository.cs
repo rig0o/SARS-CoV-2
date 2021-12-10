@@ -102,17 +102,27 @@ namespace SARS_CoV_2.Database
             return lis.ToList();
         }
 
-        //public ObservableCollection<DateTimePoint> GetDataGraph()
-        //{
-        //    ObservableCollection < DateTimePoint > x = from d in _dbcontext.Datasets
-        //              select new DateTimePoint
-        //              {
-        //                  DateTime = d.Fecha,
-        //                  Value = d.CnuevoTotales
+        public IEnumerable<DateTimePoint> GetDataGraph()
+        {
+            var lst  = from d in _dbcontext.Datasets
+                                           select new DateTimePoint
+                                           {
+                                               DateTime = d.Fecha,
+                                               Value = d.CnuevoTotales
 
-        //              };
-        //    return lis;
-        //}
+                                           };
+            //ObservableCollection<DateTimePoint> lista = new ObservableCollection<DateTimePoint>();
+            //foreach (var item in lst)
+            //{
+            //    var diax = new DateTimePoint{
+            //                DateTime = item.Fecha,
+            //                Value = item.CnuevoTotales
+            //                };
+            //    lista.Add(diax);
+                
+            //}
+            return lst;
+        }
 
         public static double[,] DesNorm(double[,] x)
         {
