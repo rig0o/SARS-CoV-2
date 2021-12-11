@@ -22,8 +22,9 @@ namespace SARS_CoV_2.Prediccion
 
             Elman nn = new Elman(26, 13, 1);
 
-                            //ALFA(lr) - Error - Epoca - Deep
-            while (!nn.Train(0.025, 0.0009, 20000, 5, datax, datay))
+            //ALFA(lr) - Error - Epoca - Deep
+            //0.03, 0.035, 40000, 5, datax, datay
+            while (!nn.Train(0.045, 0.03, 100000, 8, datax, datay))
             {
                 nn = new Elman(26, 13, 1);
             }

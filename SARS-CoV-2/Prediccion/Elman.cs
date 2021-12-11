@@ -108,7 +108,7 @@ namespace SARS_CoV_2.Prediccion
                 auxError = Operaciones.Add(auxError, error[i]);
 
             }
-            return auxError[0, 0] / estimado.Count;
+            return Math.Sqrt(auxError[0, 0] / estimado.Count);
         }
         private void BPTT(List<DatasetDto> inputs, List<GraficoDto> target, double alfa, int depth)
         {
