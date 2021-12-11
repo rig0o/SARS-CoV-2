@@ -20,19 +20,77 @@ namespace SARS_CoV_2.Prediccion
             List<DatasetDto> datax = repo.GetDataTrain();
             List<GraficoDto> datay = repo.GetDataTarget();
 
+            var lst = repo.GetDataForward();
+
             Elman nn = new Elman(26, 13, 1);
 
                             //ALFA(lr) - Error - Epoca - Deep
-            while (!nn.Train(0.025, 0.02, 20000, 10, datax, datay))
+            while (!nn.Train(0.05, 0.02, 30000, 5, datax, datay))
             {
+                
+                var salida = nn.FeedForward(lst);
+                using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                {
+                    write.WriteLine("ls - eror - epocas - deep: 0.05, 0.02, 30000, 5");
+                    write.WriteLine("  hora :" + DateTime.Now.ToString("HH:mm:ss"));
+                    write.WriteLine("");
+                    write.Write("Prediccion: ");
+                }
+                for (int i = 0; i < salida.Count; i++)
+                {
+                    using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                    {
+                        write.Write(DataRepository.DesNorm(salida[i][0, 0]) + "  ");
+                    }
+                }
+                using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                {
+                    write.WriteLine("");
+                    write.Write("Esperador:  ");
+                    write.WriteLine("95  123  81 80  76  85 110  131 89  108  ");
+                    write.WriteLine("");
+                    write.WriteLine("  Se procede a reinicar el entrenamiento");
+                    write.WriteLine("  Se procede a reinicar el entrenamiento");
+                    write.WriteLine("----------------------------------------------");
+                    write.WriteLine(""); write.WriteLine(""); write.WriteLine(""); write.WriteLine("");
+                }
+
+                Save(nn);
                 nn = new Elman(26, 13, 1);
+            }
+
+            var salida1 = nn.FeedForward(lst);
+            using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+            {
+                write.WriteLine("  hora :" + DateTime.Now.ToString("HH-mm-ss"));
+                write.WriteLine("");
+                write.Write("Prediccion: ");
+            }
+            for (int i = 0; i < salida1.Count; i++)
+            {
+                using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                {
+                    write.Write(DataRepository.DesNorm(salida1[i][0, 0]) + "  ");
+                }
+            }
+            using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+            {
+                write.WriteLine("");
+                write.Write("Esperador:  ");
+                write.WriteLine("95  123  81  76  85 110  131 89  108  ");
+                write.WriteLine("");
+                write.WriteLine("  Se procede a reinicar el entrenamiento");
+                write.WriteLine("  Se procede a reinicar el entrenamiento");
+                write.WriteLine("----------------------------------------------");
+                write.WriteLine(""); write.WriteLine(""); write.WriteLine(""); write.WriteLine("");
             }
 
             Save(nn);
         }
         public static void Save(Elman nn)
         {
-            FileStream fs = new FileStream(rnnPath, FileMode.Create);
+            string name = @"0Entrenamientos\EntrenamientoElman-" + DateTime.Now.ToString("HH-mm-ss") + ".bin";
+            FileStream fs = new FileStream(name, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {

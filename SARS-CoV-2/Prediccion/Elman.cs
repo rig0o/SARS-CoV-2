@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,13 +89,20 @@ namespace SARS_CoV_2.Prediccion
 
                 if (error < maxLoss) return true;
 
-                if (epoch % 10 == 0) Debug.WriteLine("Epoca :" + epoch + " Error = " + error);
+                if (epoch % 1000 == 0)
+                {
+                    using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                    {
+                        write.WriteLine(DateTime.Now.ToString("HH:mm:ss ") + "  Epoca :" + epoch + " Error = " + error);
+                    }
+                }
             }
 
-            Debug.WriteLine("----------------------------------------------");
-            Debug.WriteLine("  Minimo Local  :" + error);
-            Debug.WriteLine("  Se procede a reinicar el entrenamiento");
-            Debug.WriteLine("----------------------------------------------");
+            using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+            {
+                write.WriteLine(" ");
+                write.WriteLine("  Minimo Local  :" + error);
+            }
             return false;
         }
         private double MSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
