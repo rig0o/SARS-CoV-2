@@ -43,7 +43,7 @@ namespace SARS_CoV_2.Vista
                     Values = repo.GetDataGraph(),
                     Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
                     GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
-                    GeometrySize = 0,
+                    GeometrySize = 3,
                     Fill = null
                 }
             };

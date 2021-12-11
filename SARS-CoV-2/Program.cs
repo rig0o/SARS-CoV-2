@@ -27,12 +27,12 @@ namespace SARS_CoV_2
 
             //var lst = repo.GetDataForward();
 
-            //var salida = rnn.FeedForward(lst);
+           //var salida = rnn.FeedForward(lst);
 
             //for (int i = 0; i < salida.Count; i++)
             //{
-            //    Debug.WriteLine(DataRepository.DesNorm(salida[i][0, 0]));
-            //}
+             //   Debug.WriteLine(DataRepository.DesNorm(salida[i][0, 0]));
+           // }
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
