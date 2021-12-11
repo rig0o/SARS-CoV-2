@@ -31,7 +31,7 @@ namespace SARS_CoV_2.Prediccion
                 var salida = nn.FeedForward(lst);
                 using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
                 {
-                    write.WriteLine("ls - eror - epocas - deep: 0.05, 0.02, 30000, 5");
+                    write.WriteLine("lr - eror - epocas - deep: 0.05, 0.02, 30000, 5");
                     write.WriteLine("  hora :" + DateTime.Now.ToString("HH:mm:ss"));
                     write.WriteLine("");
                     write.Write("Prediccion: ");

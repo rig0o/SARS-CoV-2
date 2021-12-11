@@ -37,6 +37,9 @@ namespace SARS_CoV_2.Vista
             this.label4 = new System.Windows.Forms.Label();
             this.Grafico = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -81,9 +84,24 @@ namespace SARS_CoV_2.Vista
             this.panel13 = new System.Windows.Forms.Panel();
             this.cklVacaciones = new System.Windows.Forms.CheckedListBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Día_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Día_10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label14 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -108,6 +126,9 @@ namespace SARS_CoV_2.Vista
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // Entrenar
@@ -180,16 +201,47 @@ namespace SARS_CoV_2.Vista
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel21);
             this.panel1.Controls.Add(this.panel20);
             this.panel1.Controls.Add(this.panel19);
             this.panel1.Controls.Add(this.panel18);
             this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(2295, 0);
+            this.panel1.Location = new System.Drawing.Point(1408, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(128, 881);
             this.panel1.TabIndex = 12;
+            // 
+            // panel21
+            // 
+            this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel21.Controls.Add(this.button2);
+            this.panel21.Controls.Add(this.btnVolver);
+            this.panel21.Location = new System.Drawing.Point(1, 803);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(124, 45);
+            this.panel21.TabIndex = 18;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(3, 114);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 39);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Exportar Resultados";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(1, 2);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(119, 39);
+            this.btnVolver.TabIndex = 0;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // panel20
             // 
@@ -334,7 +386,7 @@ namespace SARS_CoV_2.Vista
             this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Top;
             this.cartesianChart1.Location = new System.Drawing.Point(0, 0);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(2295, 464);
+            this.cartesianChart1.Size = new System.Drawing.Size(1408, 464);
             this.cartesianChart1.TabIndex = 0;
             this.cartesianChart1.Load += new System.EventHandler(this.cartesianChart1_Load);
             // 
@@ -344,7 +396,7 @@ namespace SARS_CoV_2.Vista
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2295, 531);
+            this.panel2.Size = new System.Drawing.Size(1408, 512);
             this.panel2.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -359,12 +411,12 @@ namespace SARS_CoV_2.Vista
             this.flowLayoutPanel1.Controls.Add(this.panel15);
             this.flowLayoutPanel1.Controls.Add(this.panel16);
             this.flowLayoutPanel1.Controls.Add(this.panel13);
-            this.flowLayoutPanel1.Controls.Add(this.btnVolver);
+            this.flowLayoutPanel1.Controls.Add(this.panel22);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 534);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 535);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(2295, 347);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1408, 346);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // panel8
@@ -375,7 +427,7 @@ namespace SARS_CoV_2.Vista
             this.panel8.Location = new System.Drawing.Point(3, 2);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(229, 99);
+            this.panel8.Size = new System.Drawing.Size(229, 107);
             this.panel8.TabIndex = 0;
             // 
             // cklConurbacion
@@ -411,7 +463,7 @@ namespace SARS_CoV_2.Vista
             this.panel9.Location = new System.Drawing.Point(238, 2);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(189, 103);
+            this.panel9.Size = new System.Drawing.Size(189, 107);
             this.panel9.TabIndex = 1;
             // 
             // cklOvalle
@@ -447,7 +499,7 @@ namespace SARS_CoV_2.Vista
             this.panel10.Location = new System.Drawing.Point(433, 2);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(267, 99);
+            this.panel10.Size = new System.Drawing.Size(267, 107);
             this.panel10.TabIndex = 2;
             // 
             // cklIllapel
@@ -483,7 +535,7 @@ namespace SARS_CoV_2.Vista
             this.panel11.Location = new System.Drawing.Point(706, 2);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(228, 103);
+            this.panel11.Size = new System.Drawing.Size(228, 107);
             this.panel11.TabIndex = 3;
             // 
             // cklSalamanca
@@ -588,10 +640,10 @@ namespace SARS_CoV_2.Vista
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel15.Controls.Add(this.cklExcepcion);
             this.panel15.Controls.Add(this.label12);
-            this.panel15.Location = new System.Drawing.Point(1409, 2);
+            this.panel15.Location = new System.Drawing.Point(3, 113);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(229, 99);
+            this.panel15.Size = new System.Drawing.Size(229, 107);
             this.panel15.TabIndex = 7;
             // 
             // cklExcepcion
@@ -615,17 +667,17 @@ namespace SARS_CoV_2.Vista
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(115, 15);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Estado de Excepcion";
+            this.label12.Text = "Estado de Excepción";
             // 
             // panel16
             // 
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel16.Controls.Add(this.label11);
             this.panel16.Controls.Add(this.cklMovilidad);
-            this.panel16.Location = new System.Drawing.Point(1644, 2);
+            this.panel16.Location = new System.Drawing.Point(238, 113);
             this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(189, 99);
+            this.panel16.Size = new System.Drawing.Size(189, 107);
             this.panel16.TabIndex = 8;
             // 
             // label11
@@ -656,10 +708,10 @@ namespace SARS_CoV_2.Vista
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel13.Controls.Add(this.cklVacaciones);
             this.panel13.Controls.Add(this.label10);
-            this.panel13.Location = new System.Drawing.Point(1839, 2);
+            this.panel13.Location = new System.Drawing.Point(433, 113);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(267, 99);
+            this.panel13.Size = new System.Drawing.Size(267, 107);
             this.panel13.TabIndex = 5;
             // 
             // cklVacaciones
@@ -683,19 +735,101 @@ namespace SARS_CoV_2.Vista
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(236, 15);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Implementacion del Permiso de Vacaciones";
+            this.label10.Text = "Implementación del Permiso de Vacaciones";
             // 
-            // btnVolver
+            // panel22
             // 
-            this.btnVolver.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnVolver.Location = new System.Drawing.Point(2112, 87);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(82, 22);
-            this.btnVolver.TabIndex = 0;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.panel22.Controls.Add(this.dataGridView1);
+            this.panel22.Controls.Add(this.label14);
+            this.panel22.Location = new System.Drawing.Point(3, 225);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(1399, 100);
+            this.panel22.TabIndex = 11;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Día_1,
+            this.Día_2,
+            this.Día_3,
+            this.Día_4,
+            this.Día_5,
+            this.Día_6,
+            this.Día_7,
+            this.Día_8,
+            this.Día_9,
+            this.Día_10});
+            this.dataGridView1.Location = new System.Drawing.Point(220, 36);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(1043, 49);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // Día_1
+            // 
+            this.Día_1.HeaderText = "Día_1";
+            this.Día_1.Name = "Día_1";
+            // 
+            // Día_2
+            // 
+            this.Día_2.HeaderText = "Día_2";
+            this.Día_2.Name = "Día_2";
+            // 
+            // Día_3
+            // 
+            this.Día_3.HeaderText = "Día_3";
+            this.Día_3.Name = "Día_3";
+            // 
+            // Día_4
+            // 
+            this.Día_4.HeaderText = "Día_4";
+            this.Día_4.Name = "Día_4";
+            // 
+            // Día_5
+            // 
+            this.Día_5.HeaderText = "Día_5";
+            this.Día_5.Name = "Día_5";
+            // 
+            // Día_6
+            // 
+            this.Día_6.HeaderText = "Día_6";
+            this.Día_6.Name = "Día_6";
+            // 
+            // Día_7
+            // 
+            this.Día_7.HeaderText = "Día_7";
+            this.Día_7.Name = "Día_7";
+            // 
+            // Día_8
+            // 
+            this.Día_8.HeaderText = "Día_8";
+            this.Día_8.Name = "Día_8";
+            // 
+            // Día_9
+            // 
+            this.Día_9.HeaderText = "Día_9";
+            this.Día_9.Name = "Día_9";
+            // 
+            // Día_10
+            // 
+            this.Día_10.HeaderText = "Día_10";
+            this.Día_10.Name = "Día_10";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(591, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(237, 23);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Numero de Contagios Predichos";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -704,11 +838,33 @@ namespace SARS_CoV_2.Vista
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(636, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(155, 23);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Modificar Escenarios";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.label15);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(0, 512);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(1408, 23);
+            this.panel24.TabIndex = 15;
+            // 
             // VistaPrediccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2423, 881);
+            this.ClientSize = new System.Drawing.Size(1536, 881);
+            this.Controls.Add(this.panel24);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -716,6 +872,7 @@ namespace SARS_CoV_2.Vista
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prediccion";
             this.panel1.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -753,6 +910,11 @@ namespace SARS_CoV_2.Vista
             this.panel16.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -812,5 +974,22 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Día_10;
     }
 }
