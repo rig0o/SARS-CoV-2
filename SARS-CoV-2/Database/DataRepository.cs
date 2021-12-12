@@ -329,5 +329,6 @@ namespace SARS_CoV_2.Database
             return Math.Round(x * (385 - 4) + 4);  //return value * (max - min) + min;
 
         }
+
     }
 }

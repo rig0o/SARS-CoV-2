@@ -20,13 +20,14 @@ namespace SARS_CoV_2
         [STAThread]
         static void Main()
         {
-            Fit.fit();
+            //Fit.fit();
 
             //var rnn = Fit.Load();
 
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new VistaMenuPrincipal());
             //Application.Run(new VistaPrediccion());
 
 

@@ -83,6 +83,26 @@ namespace SARS_CoV_2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MINSAL {
+            get {
+                object obj = ResourceManager.GetObject("MINSAL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon MINSAL1 {
+            get {
+                object obj = ResourceManager.GetObject("MINSAL1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap red {
             get {
                 object obj = ResourceManager.GetObject("red", resourceCulture);
