@@ -218,5 +218,9 @@ namespace SARS_CoV_2.Vista
 
         }
 
+        private void btnModificado_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -89,7 +89,7 @@ namespace SARS_CoV_2.Prediccion
 
                 if (error < maxLoss) return true;
 
-                if (epoch % 1000 == 0)
+                if (epoch % 100 == 0)
                 {
                     using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
                     {

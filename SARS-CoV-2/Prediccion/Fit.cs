@@ -25,7 +25,7 @@ namespace SARS_CoV_2.Prediccion
             Elman nn = new Elman(26, 13, 1);
 
                             //ALFA(lr) - Error - Epoca - Deep
-            while (!nn.Train(0.05, 0.02, 30000, 5, datax, datay))
+            while (!nn.Train(0.04, 0.045, 50000, 5, datax, datay))
             {
                 
                 var salida = nn.FeedForward(lst);
@@ -77,7 +77,7 @@ namespace SARS_CoV_2.Prediccion
             {
                 write.WriteLine("");
                 write.Write("Esperador:  ");
-                write.WriteLine("95  123  81  76  85 110  131 89  108  ");
+                write.WriteLine("95  123  81 80  76  85 110  131 89  108  ");
                 write.WriteLine("");
                 write.WriteLine("  Se procede a reinicar el entrenamiento");
                 write.WriteLine("  Se procede a reinicar el entrenamiento");
