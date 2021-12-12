@@ -146,12 +146,15 @@ namespace SARS_CoV_2.Vista
 
         private void cklOvalle_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             int index = cklOvalle.SelectedIndex;
             int count = cklOvalle.Items.Count;
 
             for (int i = 0; i < count; i++)
             {
+                
                 cklOvalle.SetItemCheckState(i, CheckState.Unchecked);
+                
             }
         }
 
@@ -239,7 +242,352 @@ namespace SARS_CoV_2.Vista
 
         private void btnModificado_Click(object sender, EventArgs e)
         {
+            DataRepository repo = new DataRepository();
+            var lst = repo.GetDataRealista();
+
+            int ovalle = cklOvalle.SelectedIndex;
+            int conurbacion = cklConurbacion.SelectedIndex;
+            int illapel = cklIllapel.SelectedIndex;
+            int salamanca = cklSalamanca.SelectedIndex;
+            int montepatria = cklMontePatria.SelectedIndex;
             
+            int movilidad = cklMovilidad.SelectedIndex;
+            int excepcion = cklExcepcion.SelectedIndex;
+            int variante = cklVariante.SelectedIndex;
+            int vacaciones = cklVacaciones.SelectedIndex;
+
+            if(ovalle != -1){
+
+                switch (ovalle){
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PppOvalle = 0;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PppOvalle = 0.33;
+                        }
+
+                        break;
+
+                    case 2:
+                        foreach (var item in lst)
+                        {
+                            item.PppOvalle = 0.66;
+                        }
+
+                        break;
+                    case 3:
+                        foreach (var item in lst)
+                        {
+                            item.PppOvalle = 1;
+                        }
+
+                        break;
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+                
+            }
+
+            if (conurbacion != -1){
+
+                switch (conurbacion)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PppConurbacioLaSerenaCoquimbo = 0;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PppConurbacioLaSerenaCoquimbo = 0.33;
+                        }
+
+                        break;
+
+                    case 2:
+                        foreach (var item in lst)
+                        {
+                            item.PppConurbacioLaSerenaCoquimbo = 0.66;
+                        }
+
+                        break;
+                    case 3:
+                        foreach (var item in lst)
+                        {
+                            item.PppConurbacioLaSerenaCoquimbo = 1;
+                        }
+
+                        break;
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+
+            }
+
+            if (illapel != -1){
+                switch (illapel)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PppIllapel = 0;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PppIllapel = 0.33;
+                        }
+
+                        break;
+
+                    case 2:
+                        foreach (var item in lst)
+                        {
+                            item.PppIllapel = 0.66;
+                        }
+
+                        break;
+                    case 3:
+                        foreach (var item in lst)
+                        {
+                            item.PppIllapel = 1;
+                        }
+
+                        break;
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+            }
+
+            if (salamanca != -1){
+                switch (salamanca)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PppSalamanca = 0;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PppSalamanca = 0.33;
+                        }
+
+                        break;
+
+                    case 2:
+                        foreach (var item in lst)
+                        {
+                            item.PppSalamanca = 0.66;
+                        }
+
+                        break;
+                    case 3:
+                        foreach (var item in lst)
+                        {
+                            item.PppSalamanca = 1;
+                        }
+
+                        break;
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+            }
+
+            if (montepatria != -1){
+                switch (montepatria)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PppMontePatria = 0;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PppMontePatria = 0.33;
+                        }
+
+                        break;
+
+                    case 2:
+                        foreach (var item in lst)
+                        {
+                            item.PppMontePatria = 0.66;
+                        }
+
+                        break;
+                    case 3:
+                        foreach (var item in lst)
+                        {
+                            item.PppMontePatria = 1;
+                        }
+
+                        break;
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+            }
+
+            if (movilidad != -1){
+
+                // 1 = Si
+                // 0 = No
+                switch (movilidad)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PaseMovilidad = 1;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PaseMovilidad = 0;
+                        }
+
+                        break;
+                    
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+
+            }
+
+            if (excepcion != -1){
+                switch (excepcion)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.EstadoExcepcion = 1;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.EstadoExcepcion = 0;
+                        }
+
+                        break;
+
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+
+            }
+
+            if (variante != -1){
+                switch (variante)
+                {
+                    case 0: //Alpha
+                        foreach (var item in lst)
+                        {
+                            item.Alpha = 1;
+                            item.Gamma = 0;
+                            item.Delta = 0;
+                            
+                        }
+                        break;
+
+                    case 1: //Gamma
+                        foreach (var item in lst)
+                        {
+                            item.Alpha = 0;
+                            item.Gamma = 1;
+                            item.Delta = 0;
+
+                        }
+
+                        break;
+
+                    case 2: //Delta
+                        foreach (var item in lst)
+                        {
+                            item.Alpha = 0;
+                            item.Gamma = 0;
+                            item.Delta = 1;
+
+                        }
+
+                        break;
+
+                    case 3: //Original
+                        foreach (var item in lst)
+                        {
+                            item.Alpha = 0;
+                            item.Gamma = 0;
+                            item.Delta = 0;
+
+                        }
+
+                        break;
+
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+
+
+            }
+
+            if (vacaciones != -1){
+                switch (vacaciones)
+                {
+                    case 0:
+                        foreach (var item in lst)
+                        {
+                            item.PermisoVacaciones = 1;
+                        }
+                        break;
+
+                    case 1:
+                        foreach (var item in lst)
+                        {
+                            item.PermisoVacaciones = 0;
+                        }
+
+                        break;
+
+                    default:
+                        Debug.WriteLine("Error 172");
+                        break;
+                }
+            }
+
+            var nn = Fit.Load();
+            var salida = nn.FeedForward(lst);
+
+
+            Debug.WriteLine(lst[5].PppOvalle);
+
         }
+
+
     }
 }
