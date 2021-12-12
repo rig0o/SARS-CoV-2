@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SARS_CoV_2.Database.Dto;
 using SARS_CoV_2.Database;
+using LiveChartsCore.Defaults;
 
 namespace SARS_CoV_2.Prediccion
 {
@@ -20,14 +21,14 @@ namespace SARS_CoV_2.Prediccion
             List<DatasetDto> datax = repo.GetDataTrain();
             List<GraficoDto> datay = repo.GetDataTarget();
 
-            var lst = repo.GetDataForward();
+            var lst = repo.GetDataRealista();
 
             Elman nn = new Elman(26, 13, 1);
 
-                            //ALFA(lr) - Error - Epoca - Deep
-            while (!nn.Train(0.04, 0.045, 50000, 5, datax, datay))
+            //ALFA(lr) - Error - Epoca - Deep
+            while (!nn.Train(0.025, 0.025, 100000, 5, datax, datay))
             {
-                
+
                 var salida = nn.FeedForward(lst);
                 using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
                 {
@@ -77,14 +78,14 @@ namespace SARS_CoV_2.Prediccion
             {
                 write.WriteLine("");
                 write.Write("Esperador:  ");
-                write.WriteLine("95  123  81 80  76  85 110  131 89  108  ");
+                write.WriteLine("95  123  81 80 76  85 110  131 89  108  ");
                 write.WriteLine("");
                 write.WriteLine("  Se procede a reinicar el entrenamiento");
                 write.WriteLine("  Se procede a reinicar el entrenamiento");
                 write.WriteLine("----------------------------------------------");
                 write.WriteLine(""); write.WriteLine(""); write.WriteLine(""); write.WriteLine("");
             }
-
+            
             Save(nn);
         }
         public static void Save(Elman nn)
@@ -125,6 +126,31 @@ namespace SARS_CoV_2.Prediccion
                 fs.Close();
             }
             return nn;
+        }
+
+        public static List<DateTimePoint> casoPesimista()
+        {
+            DataRepository repo = new DataRepository();
+            var lst = repo.GetDataPesimista();
+            var nn = Load();
+            var salida = nn.FeedForward(lst);
+            return repo.GetDataGraphRealista(salida);
+        }
+        public static List<DateTimePoint> casoOptimista()
+        {
+            DataRepository repo = new DataRepository();
+            var lst = repo.GetDataOptimista();
+            var nn = Load();
+            var salida = nn.FeedForward(lst);
+            return repo.GetDataGraphRealista(salida);
+        }
+        public static List<DateTimePoint> casoRealista()
+        {
+            DataRepository repo = new DataRepository();
+            var lst = repo.GetDataRealista();
+            var nn = Load();
+            var salida = nn.FeedForward(lst);
+            return repo.GetDataGraphRealista(salida);
         }
     }
 }

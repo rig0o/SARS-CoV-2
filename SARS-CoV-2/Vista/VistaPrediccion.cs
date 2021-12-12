@@ -17,24 +17,29 @@ using System.Windows.Forms;
 using SARS_CoV_2.Database;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.Measure;
+using SARS_CoV_2.Prediccion;
 
 namespace SARS_CoV_2.Vista
 {
     public partial class VistaPrediccion : Form
     {
         Thread th;
+        private ObservableCollection<ISeries> predictions;
+        private DataRepository repo;
+
         public VistaPrediccion()
         {
+            this.repo = new DataRepository();
             InitializeComponent();
             InitCartesianChart();
+            
         }
 
         private void InitCartesianChart()
         {
-            DataRepository repo = new();
             cartesianChart1.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
             //cartesianChart1.LegendPosition = LegendPosition.Right;
-            cartesianChart1.Series = new ObservableCollection<ISeries>
+            predictions = new ObservableCollection<ISeries>
             {
                 new LineSeries<DateTimePoint>
                 {
@@ -47,6 +52,7 @@ namespace SARS_CoV_2.Vista
                     Fill = null
                 }
             };
+            cartesianChart1.Series = predictions;
             cartesianChart1.XAxes = new List<Axis>
             {
                 new Axis
@@ -73,31 +79,44 @@ namespace SARS_CoV_2.Vista
         }
         private void Grafico_Click(object sender, EventArgs e)
         {
-            cartesianChart1.Series = new ObservableCollection<ISeries>
+
+            var pesimista = new LineSeries<DateTimePoint> 
             {
-                new LineSeries<double>
-                {
-                    Values = new ObservableCollection<double> { 12, 11, 13, 19, 23, 27, 30 },
-                    Fill = null
-                },
-                new LineSeries<double>
-                {
-                    Values = new ObservableCollection<double> { 2, 1, 3, 5, 3, 4, 6 },
-                    Fill = null
-                },
-                new LineSeries<double>
-                {
-                    Values = new ObservableCollection<double> {20, 25, 30, 45, 55, 60, 80 },
-                    Fill = null
-                },
-                new LineSeries<double>
-                {
-                    Values = new ObservableCollection<double> { 7, 8, 9, 10, 11, 15, 20 },
-                    Fill = null
-                }
+                Name = "pesimista",
+                LineSmoothness = 1,
+                Values = Fit.casoPesimista(),
+                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
+                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                GeometrySize = 3,
+                Fill = null
+            };
+            var optimista = new LineSeries<DateTimePoint>
+            {
+                Name = "Optimista",
+                LineSmoothness = 1,
+                Values = Fit.casoOptimista(),
+                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
+                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                GeometrySize = 3,
+                Fill = null
+            };
+            var realista = new LineSeries<DateTimePoint>
+            {
+                Name = "Realista",
+                LineSmoothness = 1,
+                Values = Fit.casoRealista(),
+                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
+                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                GeometrySize = 3,
+                Fill = null
             };
 
-            
+            predictions.Add(pesimista);
+
+            cartesianChart1.Series = predictions;
+            //predictions.Add(optimista);
+            //predictions.Add(realista);
+
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
