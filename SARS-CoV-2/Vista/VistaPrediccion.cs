@@ -38,7 +38,6 @@ namespace SARS_CoV_2.Vista
         private void InitCartesianChart()
         {
             cartesianChart1.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
-            //cartesianChart1.LegendPosition = LegendPosition.Right;
             predictions = new ObservableCollection<ISeries>
             {
                 new LineSeries<DateTimePoint>
@@ -65,7 +64,7 @@ namespace SARS_CoV_2.Vista
                     UnitWidth = TimeSpan.FromDays(1).Ticks,
 
                     // The MinStep property forces the separator to be greater than 1 day.
-                    MinStep = TimeSpan.FromDays(1).Ticks
+                    //MinStep = TimeSpan.FromDays(1).Ticks
 
                     // if the difference between our points is in hours then we would:
                     // UnitWidth = TimeSpan.FromHours(1).Ticks,
@@ -74,6 +73,25 @@ namespace SARS_CoV_2.Vista
                     // we can use the average, it would not cause any visible error in the user interface
                     // Months: TimeSpan.FromDays(30.4375).Ticks
                     // Years: TimeSpan.FromDays(365.25).Ticks
+                }
+            };
+            cartesianChart1.YAxes = new List<Axis>
+            {
+                new Axis
+                {
+                    Name = "Contagios totales",
+
+                    // Now the Y axis we will display it as currency
+                    // LiveCharts provides some common formatters
+                    // in this case we are using the currency formatter.
+                    Labeler = Labelers.Default
+
+                    // you could also build your own currency formatter
+                    // for example:
+                    // Labeler = (value) => value.ToString("C")
+
+                    // But the one that LiveCharts provides creates shorter labels when
+                    // the amount is in millions or trillions
                 }
             };
         }
@@ -85,8 +103,8 @@ namespace SARS_CoV_2.Vista
                 Name = "pesimista",
                 LineSmoothness = 1,
                 Values = Fit.casoPesimista(),
-                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
-                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                Stroke = new SolidColorPaint(new SKColor(203 ,040, 033), 2),  // ROJO
+                GeometryStroke = new SolidColorPaint(new SKColor(203, 040, 033), 2), // ROJO
                 GeometrySize = 3,
                 Fill = null
             };
@@ -95,8 +113,8 @@ namespace SARS_CoV_2.Vista
                 Name = "Optimista",
                 LineSmoothness = 1,
                 Values = Fit.casoOptimista(),
-                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
-                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                Stroke = new SolidColorPaint(new SKColor(048 ,132 ,070), 2),  // Verde
+                GeometryStroke = new SolidColorPaint(new SKColor(048, 132, 070), 2), // Verde
                 GeometrySize = 3,
                 Fill = null
             };
@@ -105,17 +123,16 @@ namespace SARS_CoV_2.Vista
                 Name = "Realista",
                 LineSmoothness = 1,
                 Values = Fit.casoRealista(),
-                //Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
-                //GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
+                Stroke = new SolidColorPaint(new SKColor(25, 118, 210), 2),  // new SKColor(25, 118, 210)  --> AZUL
+                GeometryStroke = new SolidColorPaint(new SKColor(25, 118, 210), 2), // AZUL
                 GeometrySize = 3,
                 Fill = null
             };
 
             predictions.Add(pesimista);
-
-            cartesianChart1.Series = predictions;
-            //predictions.Add(optimista);
-            //predictions.Add(realista);
+            predictions.Add(optimista);
+            predictions.Add(realista);
+            //cartesianChart1.Series = predictions;
 
         }
 

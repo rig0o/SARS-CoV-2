@@ -134,7 +134,7 @@ namespace SARS_CoV_2.Prediccion
             var lst = repo.GetDataPesimista();
             var nn = Load();
             var salida = nn.FeedForward(lst);
-            return repo.GetDataGraphRealista(salida);
+            return repo.GetDataGraphCasos(salida);
         }
         public static List<DateTimePoint> casoOptimista()
         {
@@ -142,7 +142,7 @@ namespace SARS_CoV_2.Prediccion
             var lst = repo.GetDataOptimista();
             var nn = Load();
             var salida = nn.FeedForward(lst);
-            return repo.GetDataGraphRealista(salida);
+            return repo.GetDataGraphCasos(salida);
         }
         public static List<DateTimePoint> casoRealista()
         {
@@ -150,7 +150,7 @@ namespace SARS_CoV_2.Prediccion
             var lst = repo.GetDataRealista();
             var nn = Load();
             var salida = nn.FeedForward(lst);
-            return repo.GetDataGraphRealista(salida);
+            return repo.GetDataGraphCasos(salida);
         }
     }
 }

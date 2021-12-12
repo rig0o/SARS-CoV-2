@@ -157,7 +157,7 @@ namespace SARS_CoV_2.Vista
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 30);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Escenario \r\n    Real\r\n";
+            this.label1.Text = "Escenario \r\n Pesimista";
             // 
             // label2
             // 
@@ -167,27 +167,27 @@ namespace SARS_CoV_2.Vista
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 30);
             this.label2.TabIndex = 4;
-            this.label2.Text = " Escenario \r\n Optimista";
+            this.label2.Text = " Escenario \r\n Realista";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(65, 0);
+            this.label3.Location = new System.Drawing.Point(57, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 30);
+            this.label3.Size = new System.Drawing.Size(71, 30);
             this.label3.TabIndex = 5;
-            this.label3.Text = " Escenario \r\n Pesimista";
+            this.label3.Text = " Escenario \r\n Modificado";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(57, 0);
+            this.label4.Location = new System.Drawing.Point(59, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 30);
+            this.label4.Size = new System.Drawing.Size(69, 30);
             this.label4.TabIndex = 6;
-            this.label4.Text = "   Escenario \r\n Modificado";
+            this.label4.Text = "   Escenario \r\n   Optimista";
             // 
             // Grafico
             // 

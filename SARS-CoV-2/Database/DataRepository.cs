@@ -234,57 +234,7 @@ namespace SARS_CoV_2.Database
             return norma;
         }
 
-        public List<DateTimePoint> GetDataGraphPesimista(Dictionary<int, double[,]> predict)
-        {
-            List<DateTimePoint> lst = new List<DateTimePoint>();
-            var lis = from d in _dbcontext.Datasets
-                      select new GraficoDto
-                      {
-                          Fecha = d.Fecha,
-                          CnuevoTotales = d.CnuevoTotales
-
-                      };
-            var fecha = lis.Last();
-
-            DateTime lastDay = fecha.Fecha;
-            lastDay = lastDay.AddDays(1);
-
-            for (int i = 0; i < predict.Count; i++)
-            {
-                lst.Add(new DateTimePoint
-                {
-                    DateTime = lastDay,
-                    Value = predict[i][0,0]
-                }) ;
-                lastDay = lastDay.AddDays(1);
-            }
-
-            foreach (var item in lst)
-            {
-                item.Value = DesNorm((double)item.Value);
-            }
-
-            return lst;
-        }
-        public List<DateTimePoint> GetDataGraphOptimista()
-        {
-            var lst = from d in _dbcontext.Datasets
-                      select new DateTimePoint
-                      {
-                          DateTime = d.Fecha,
-                          Value = d.CnuevoTotales
-
-                      };
-            var norma = lst.ToList();
-
-            foreach (var item in norma)
-            {
-                item.Value = DesNorm((double)item.Value);
-            }
-
-            return norma;
-        }
-        public List<DateTimePoint> GetDataGraphRealista(Dictionary<int, double[,]> predict)
+        public List<DateTimePoint> GetDataGraphCasos(Dictionary<int, double[,]> predict)
         {
             List<DateTimePoint> lst = new List<DateTimePoint>();
             var listafechas = GetDataRealista();
