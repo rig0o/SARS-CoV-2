@@ -127,7 +127,6 @@ namespace SARS_CoV_2.Prediccion
             }
             return nn;
         }
-
         public static List<DateTimePoint> casoPesimista()
         {
             DataRepository repo = new DataRepository();
@@ -148,6 +147,13 @@ namespace SARS_CoV_2.Prediccion
         {
             DataRepository repo = new DataRepository();
             var lst = repo.GetDataRealista();
+            var nn = Load();
+            var salida = nn.FeedForward(lst);
+            return repo.GetDataGraphCasos(salida);
+        }
+        public static List<DateTimePoint> casoModificado(List<DatasetDto> lst)
+        {
+            DataRepository repo = new DataRepository();
             var nn = Load();
             var salida = nn.FeedForward(lst);
             return repo.GetDataGraphCasos(salida);

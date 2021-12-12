@@ -42,7 +42,6 @@ namespace SARS_CoV_2.Prediccion
             Bh = Operaciones.RandomValues(hidden, 1);
             Bo = Operaciones.RandomValues(output, 1);
         }
-
         public Dictionary<int, double[,]> FeedForward(List<DatasetDto> inputs)
         {
             var hiddenAnterior = Operaciones.RandomZeros(NumHidden);
@@ -74,7 +73,6 @@ namespace SARS_CoV_2.Prediccion
             }
             return ActsOut;
         }
-
         #region Entrenamiento
         public bool Train(double alfa, double maxLoss, int maxEpoch, int deep, List<DatasetDto> inputs, List<GraficoDto> target)
         {
@@ -91,18 +89,18 @@ namespace SARS_CoV_2.Prediccion
 
                 if (epoch % 10000 == 0)
                 {
-                    using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
-                    {
-                        write.WriteLine(DateTime.Now.ToString("HH:mm:ss ") + "  Epoca :" + epoch + " Error = " + error);
-                    }
+                    //using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+                    //{
+                    //    write.WriteLine(DateTime.Now.ToString("HH:mm:ss ") + "  Epoca :" + epoch + " Error = " + error);
+                    //}
                 }
             }
 
-            using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
-            {
-                write.WriteLine(" ");
-                write.WriteLine("  Minimo Local  :" + error);
-            }
+            //using (StreamWriter write = new StreamWriter(Directory.GetCurrentDirectory().ToString() + @"\0Entrenamientos\LogError.txt", true))
+            //{
+            //    write.WriteLine(" ");
+            //    write.WriteLine("  Minimo Local  :" + error);
+            //}
             return false;
         }
         private double MSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
@@ -176,31 +174,34 @@ namespace SARS_CoV_2.Prediccion
             double[,] n = Operaciones.MutiplyEscalar(derivada, alfa);
             return Operaciones.Sub(actualiza, n);
         }
-        private void UpdateWoh(double[,] dErrdOh, double alfa)
-        {
-            double[,] noh = Operaciones.MutiplyEscalar(dErrdOh, alfa);
-            Woh = Operaciones.Sub(Woh, noh);
-        }
-        private void UpdateBo(double[,] dErrdBo, double alfa)
-        {
-            double[,] nbo = Operaciones.MutiplyEscalar(dErrdBo, alfa);
-            Bo = Operaciones.Sub(Bo, nbo);
-        }
-        private void UpdateWhh(double[,] dErrdWhh, double alfa)
-        {
-            double[,] nhh = Operaciones.MutiplyEscalar(dErrdWhh, alfa);
-            Whh = Operaciones.Sub(Whh, nhh);
-        }
-        private void UpdateWhx(double[,] dErrdWhx, double alfa)
-        {
-            double[,] nhx = Operaciones.MutiplyEscalar(dErrdWhx, alfa);
-            Whx = Operaciones.Sub(Whx, nhx);
-        }
-        private void UpdateBh(double[,] dErrdBh, double alfa)
-        {
-            double[,] nbh = Operaciones.MutiplyEscalar(dErrdBh, alfa);
-            Bh = Operaciones.Sub(Bh, nbh);
-        }
+        
+        
+        
+        //private void UpdateWoh(double[,] dErrdOh, double alfa)
+        //{
+        //    double[,] noh = Operaciones.MutiplyEscalar(dErrdOh, alfa);
+        //    Woh = Operaciones.Sub(Woh, noh);
+        //}
+        //private void UpdateBo(double[,] dErrdBo, double alfa)
+        //{
+        //    double[,] nbo = Operaciones.MutiplyEscalar(dErrdBo, alfa);
+        //    Bo = Operaciones.Sub(Bo, nbo);
+        //}
+        //private void UpdateWhh(double[,] dErrdWhh, double alfa)
+        //{
+        //    double[,] nhh = Operaciones.MutiplyEscalar(dErrdWhh, alfa);
+        //    Whh = Operaciones.Sub(Whh, nhh);
+        //}
+        //private void UpdateWhx(double[,] dErrdWhx, double alfa)
+        //{
+        //    double[,] nhx = Operaciones.MutiplyEscalar(dErrdWhx, alfa);
+        //    Whx = Operaciones.Sub(Whx, nhx);
+        //}
+        //private void UpdateBh(double[,] dErrdBh, double alfa)
+        //{
+        //    double[,] nbh = Operaciones.MutiplyEscalar(dErrdBh, alfa);
+        //    Bh = Operaciones.Sub(Bh, nbh);
+        //}
         #endregion
 
     }

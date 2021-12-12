@@ -17,7 +17,6 @@ namespace SARS_CoV_2.Database
         {
             _dbcontext = new datasetContext();
         }
-
         public List<DatasetDto> GetDataRealista()
         {
             IEnumerable<DatasetDto> lst = from d in _dbcontext.Datasets
@@ -132,44 +131,6 @@ namespace SARS_CoV_2.Database
             //lst = lst.Take(10);
             return lst.ToList();
         }
-        public List<DatasetDto> GetDataModificado(double Lsc, double Ovll, double Illap, double Salamc, double Mp, long EstadoE, long Pm, long Pv, long Alpha, long Gamma, long Delta)
-        {
-            IEnumerable<DatasetDto> lst = from d in _dbcontext.Datasets
-                                          select new DatasetDto
-                                          {
-                                              Fecha = d.Fecha,
-                                              CnuevoTotales = d.CnuevoTotales,
-                                              CconfirmadosRecuperados = d.CconfirmadosRecuperados,
-                                              CactivosConfirmados = d.CactivosConfirmados,
-                                              CactivosProbables = d.CactivosProbables,
-                                              CsospechaReinfeccion = d.CsospechaReinfeccion,
-                                              PcrDiarios = d.PcrDiarios,
-                                              MediaMovil = d.MediaMovil,
-                                              Refectivo = d.Refectivo,
-                                              PositividadPcr = d.PositividadPcr,
-                                              TasaTest = d.TasaTest,
-                                              PppConurbacioLaSerenaCoquimbo = Lsc,
-                                              PppOvalle = Ovll,
-                                              PppIllapel = Illap,
-                                              PppSalamanca = Salamc,
-                                              PppMontePatria = Mp,
-                                              PrimeraDosis = d.PrimeraDosis,
-                                              SegundaDosis = d.SegundaDosis,
-                                              UnicaDosis = d.UnicaDosis,
-                                              RefuerzoDosis = d.RefuerzoDosis,
-                                              CconfirmadosAntigeno = d.CconfirmadosAntigeno,
-                                              PermisoVacaciones = Pv,
-                                              PaseMovilidad = Pm,
-                                              EstadoExcepcion = EstadoE,
-                                              Alpha = Alpha,
-                                              Gamma = Gamma,
-                                              Delta = Delta
-
-                                          };
-            lst = lst.TakeLast(10);
-            return lst.ToList();
-        }
-
         public List<DatasetDto> GetDataTrain()
         {
             IEnumerable<DatasetDto> lst = from d in _dbcontext.Datasets.Take(462)
@@ -233,7 +194,6 @@ namespace SARS_CoV_2.Database
 
             return norma;
         }
-
         public List<DateTimePoint> GetDataGraphCasos(Dictionary<int, double[,]> predict)
         {
             List<DateTimePoint> lst = new List<DateTimePoint>();
@@ -260,19 +220,19 @@ namespace SARS_CoV_2.Database
             return lst;
         }
 
-        public static double[,] DesNorm(double[,] x)
-        {
-            double[,] aux = new double[x.GetLength(0),x.GetLength(1)];
+        //public static double[,] DesNorm(double[,] x)
+        //{
+        //    double[,] aux = new double[x.GetLength(0),x.GetLength(1)];
 
-            for (int i = 0; i < x.GetLength(0); i++)
-            {
-                for (int  j = 0;  j < x.GetLength(1);  j++)
-                {
-                    aux[i,j] = DesNorm(x[i,j]);  //return value * (max - min) + min;
-                }
-            }
-            return aux;
-        }
+        //    for (int i = 0; i < x.GetLength(0); i++)
+        //    {
+        //        for (int  j = 0;  j < x.GetLength(1);  j++)
+        //        {
+        //            aux[i,j] = DesNorm(x[i,j]);  //return value * (max - min) + min;
+        //        }
+        //    }
+        //    return aux;
+        //}
         public static double DesNorm(double x)
         {
 

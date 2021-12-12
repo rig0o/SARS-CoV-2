@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SARS-CoV-2", "SARS-CoV-2\SARS-CoV-2.csproj", "{16B3D63B-FF61-43E1-AE52-4BD5E34C4526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SARS-CoV-2", "SARS-CoV-2\SARS-CoV-2.csproj", "{16B3D63B-FF61-43E1-AE52-4BD5E34C4526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_SARS-CoV-2", "Test_SARS-CoV-2\Test_SARS-CoV-2.csproj", "{6109F184-409F-43DA-8715-2123D6D33432}"
+	ProjectSection(ProjectDependencies) = postProject
+		{16B3D63B-FF61-43E1-AE52-4BD5E34C4526} = {16B3D63B-FF61-43E1-AE52-4BD5E34C4526}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{16B3D63B-FF61-43E1-AE52-4BD5E34C4526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B3D63B-FF61-43E1-AE52-4BD5E34C4526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B3D63B-FF61-43E1-AE52-4BD5E34C4526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6109F184-409F-43DA-8715-2123D6D33432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6109F184-409F-43DA-8715-2123D6D33432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6109F184-409F-43DA-8715-2123D6D33432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6109F184-409F-43DA-8715-2123D6D33432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

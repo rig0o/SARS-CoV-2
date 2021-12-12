@@ -44,7 +44,7 @@ namespace SARS_CoV_2.Vista
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnModificado = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -273,21 +273,22 @@ namespace SARS_CoV_2.Vista
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.button1);
+            this.panel17.Controls.Add(this.btnModificado);
             this.panel17.Location = new System.Drawing.Point(1, 311);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(124, 48);
             this.panel17.TabIndex = 14;
             // 
-            // button1
+            // btnModificado
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(1, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 39);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Escenario Modificados";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModificado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModificado.Location = new System.Drawing.Point(1, 3);
+            this.btnModificado.Name = "btnModificado";
+            this.btnModificado.Size = new System.Drawing.Size(119, 39);
+            this.btnModificado.TabIndex = 13;
+            this.btnModificado.Text = "Escenario Modificados";
+            this.btnModificado.UseVisualStyleBackColor = true;
+            this.btnModificado.Click += new System.EventHandler(this.btnModificado_Click);
             // 
             // panel3
             // 
@@ -765,6 +766,7 @@ namespace SARS_CoV_2.Vista
             this.Día_10});
             this.dataGridView1.Location = new System.Drawing.Point(220, 36);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1043, 49);
             this.dataGridView1.TabIndex = 11;
@@ -772,51 +774,61 @@ namespace SARS_CoV_2.Vista
             // Día_1
             // 
             this.Día_1.HeaderText = "Día_1";
+            this.Día_1.MinimumWidth = 6;
             this.Día_1.Name = "Día_1";
             // 
             // Día_2
             // 
             this.Día_2.HeaderText = "Día_2";
+            this.Día_2.MinimumWidth = 6;
             this.Día_2.Name = "Día_2";
             // 
             // Día_3
             // 
             this.Día_3.HeaderText = "Día_3";
+            this.Día_3.MinimumWidth = 6;
             this.Día_3.Name = "Día_3";
             // 
             // Día_4
             // 
             this.Día_4.HeaderText = "Día_4";
+            this.Día_4.MinimumWidth = 6;
             this.Día_4.Name = "Día_4";
             // 
             // Día_5
             // 
             this.Día_5.HeaderText = "Día_5";
+            this.Día_5.MinimumWidth = 6;
             this.Día_5.Name = "Día_5";
             // 
             // Día_6
             // 
             this.Día_6.HeaderText = "Día_6";
+            this.Día_6.MinimumWidth = 6;
             this.Día_6.Name = "Día_6";
             // 
             // Día_7
             // 
             this.Día_7.HeaderText = "Día_7";
+            this.Día_7.MinimumWidth = 6;
             this.Día_7.Name = "Día_7";
             // 
             // Día_8
             // 
             this.Día_8.HeaderText = "Día_8";
+            this.Día_8.MinimumWidth = 6;
             this.Día_8.Name = "Día_8";
             // 
             // Día_9
             // 
             this.Día_9.HeaderText = "Día_9";
+            this.Día_9.MinimumWidth = 6;
             this.Día_9.Name = "Día_9";
             // 
             // Día_10
             // 
             this.Día_10.HeaderText = "Día_10";
+            this.Día_10.MinimumWidth = 6;
             this.Día_10.Name = "Día_10";
             // 
             // label14
@@ -835,8 +847,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Día 1";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // label15
             // 
@@ -968,7 +982,7 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckedListBox cklVariante;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
