@@ -24,7 +24,7 @@ namespace SARS_CoV_2.Vista
 {
     public partial class VistaPrediccion : Form
     {
-        Thread th;
+        
         private ObservableCollection<ISeries> predictions;
 
         public VistaPrediccion()
@@ -138,6 +138,7 @@ namespace SARS_CoV_2.Vista
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+            Thread th;
             th = new Thread(openNewform);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();

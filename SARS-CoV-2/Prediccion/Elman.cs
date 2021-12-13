@@ -82,7 +82,7 @@ namespace SARS_CoV_2.Prediccion
             {
                 BPTT(inputs, target, alfa, deep);
                 var prediccion = FeedForward(inputs);
-                error = MSE(prediccion, target);
+                error = RMSE(prediccion, target);
 
 
                 if (error < maxLoss) return true;
@@ -103,7 +103,7 @@ namespace SARS_CoV_2.Prediccion
             //}
             return false;
         }
-        private double MSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
+        private double RMSE(Dictionary<int, double[,]> estimado, List<GraficoDto> target)
         {
             Dictionary<int, double[,]> error = new Dictionary<int, double[,]>();
             double[,] auxError = Operaciones.RandomZeros(NumOutput);

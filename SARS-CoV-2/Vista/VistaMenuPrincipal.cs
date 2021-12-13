@@ -13,16 +13,17 @@ namespace SARS_CoV_2.Vista
 {
     public partial class VistaMenuPrincipal : Form
     {
-        Thread th;
+        
         public VistaMenuPrincipal()
         {
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        public void btnPrediccion_Click(object sender, EventArgs e)
         {
             //this.Hide();
             this.Close();
+            Thread th;
             th = new Thread(openNewformPrediccion);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -31,9 +32,10 @@ namespace SARS_CoV_2.Vista
             //ventana2.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnHistorialContagios_Click(object sender, EventArgs e)
         {
             this.Close();
+            Thread th;
             th = new Thread(openNewformHistorial);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();

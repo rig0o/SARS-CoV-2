@@ -14,7 +14,6 @@ namespace SARS_CoV_2.Vista
 {
     public partial class VistaHistorialContagios : Form
     {
-        Thread th;
         public VistaHistorialContagios()
         {
             InitializeComponent();
@@ -24,6 +23,7 @@ namespace SARS_CoV_2.Vista
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Thread th;
             th = new Thread(openNewform);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();

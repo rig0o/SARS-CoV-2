@@ -149,9 +149,9 @@ namespace SARS_CoV_2.Vista
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(46, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 38);
+            this.label1.Size = new System.Drawing.Size(80, 38);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Escenario \r\n Pesimista";
+            this.label1.Text = " Escenario \r\n Pesimista";
             // 
             // label2
             // 
@@ -159,9 +159,9 @@ namespace SARS_CoV_2.Vista
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(42, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 38);
+            this.label2.Size = new System.Drawing.Size(86, 38);
             this.label2.TabIndex = 4;
-            this.label2.Text = " Escenario \r\n Realista";
+            this.label2.Text = "  Escenario \r\n  Realista";
             // 
             // label3
             // 
@@ -267,6 +267,7 @@ namespace SARS_CoV_2.Vista
             // 
             // btnModificado2
             // 
+            this.btnModificado2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnModificado2.Location = new System.Drawing.Point(1, 3);
             this.btnModificado2.Name = "btnModificado2";
             this.btnModificado2.Size = new System.Drawing.Size(120, 64);
