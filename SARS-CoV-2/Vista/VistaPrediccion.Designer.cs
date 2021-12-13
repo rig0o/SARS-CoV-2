@@ -29,7 +29,9 @@ namespace SARS_CoV_2.Vista
         /// </summary>
         private void InitializeComponent()
         {
-            this.Entrenar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaPrediccion));
             this.Exportar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,10 +43,9 @@ namespace SARS_CoV_2.Vista
             this.button2 = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.btnModificado = new System.Windows.Forms.Button();
+            this.btnModificado2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -54,6 +55,7 @@ namespace SARS_CoV_2.Vista
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnModificado = new System.Windows.Forms.Button();
             this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -103,7 +105,6 @@ namespace SARS_CoV_2.Vista
             this.panel1.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel20.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -131,69 +132,63 @@ namespace SARS_CoV_2.Vista
             this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Entrenar
-            // 
-            this.Entrenar.Location = new System.Drawing.Point(2, 3);
-            this.Entrenar.Name = "Entrenar";
-            this.Entrenar.Size = new System.Drawing.Size(119, 39);
-            this.Entrenar.TabIndex = 1;
-            this.Entrenar.Text = "Entrenar Red";
-            this.Entrenar.UseVisualStyleBackColor = true;
-            // 
             // Exportar
             // 
+            this.Exportar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.Exportar.Location = new System.Drawing.Point(1, 3);
             this.Exportar.Name = "Exportar";
-            this.Exportar.Size = new System.Drawing.Size(119, 39);
+            this.Exportar.Size = new System.Drawing.Size(119, 61);
             this.Exportar.TabIndex = 2;
-            this.Exportar.Text = "Exportar Resultados";
+            this.Exportar.Text = "Exportar Contagios";
             this.Exportar.UseVisualStyleBackColor = true;
+            this.Exportar.Click += new System.EventHandler(this.Exportar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(68, 0);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(46, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 30);
+            this.label1.Size = new System.Drawing.Size(74, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "Escenario \r\n Pesimista";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(65, 0);
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(42, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 30);
+            this.label2.Size = new System.Drawing.Size(80, 38);
             this.label2.TabIndex = 4;
             this.label2.Text = " Escenario \r\n Realista";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(57, 0);
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(46, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 30);
+            this.label3.Size = new System.Drawing.Size(85, 38);
             this.label3.TabIndex = 5;
             this.label3.Text = " Escenario \r\n Modificado";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(59, 0);
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(36, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 30);
+            this.label4.Size = new System.Drawing.Size(92, 38);
             this.label4.TabIndex = 6;
             this.label4.Text = "   Escenario \r\n   Optimista";
             // 
             // Grafico
             // 
+            this.Grafico.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.Grafico.Location = new System.Drawing.Point(1, 3);
             this.Grafico.Name = "Grafico";
-            this.Grafico.Size = new System.Drawing.Size(119, 36);
+            this.Grafico.Size = new System.Drawing.Size(119, 54);
             this.Grafico.TabIndex = 11;
             this.Grafico.Text = "Graficar Predicción";
             this.Grafico.UseVisualStyleBackColor = true;
@@ -203,7 +198,6 @@ namespace SARS_CoV_2.Vista
             // 
             this.panel1.Controls.Add(this.panel21);
             this.panel1.Controls.Add(this.panel20);
-            this.panel1.Controls.Add(this.panel19);
             this.panel1.Controls.Add(this.panel18);
             this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel3);
@@ -234,6 +228,7 @@ namespace SARS_CoV_2.Vista
             // 
             // btnVolver
             // 
+            this.btnVolver.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnVolver.Location = new System.Drawing.Point(1, 2);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolver.Name = "btnVolver";
@@ -247,19 +242,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel20.Controls.Add(this.Exportar);
-            this.panel20.Location = new System.Drawing.Point(1, 454);
+            this.panel20.Location = new System.Drawing.Point(1, 466);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(124, 45);
+            this.panel20.Size = new System.Drawing.Size(124, 69);
             this.panel20.TabIndex = 17;
-            // 
-            // panel19
-            // 
-            this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel19.Controls.Add(this.Entrenar);
-            this.panel19.Location = new System.Drawing.Point(0, 382);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(124, 45);
-            this.panel19.TabIndex = 16;
             // 
             // panel18
             // 
@@ -267,28 +253,27 @@ namespace SARS_CoV_2.Vista
             this.panel18.Controls.Add(this.Grafico);
             this.panel18.Location = new System.Drawing.Point(1, 243);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(124, 45);
+            this.panel18.Size = new System.Drawing.Size(124, 62);
             this.panel18.TabIndex = 15;
             // 
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.btnModificado);
-            this.panel17.Location = new System.Drawing.Point(1, 311);
+            this.panel17.Controls.Add(this.btnModificado2);
+            this.panel17.Location = new System.Drawing.Point(1, 343);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(124, 48);
+            this.panel17.Size = new System.Drawing.Size(124, 72);
             this.panel17.TabIndex = 14;
             // 
-            // btnModificado
+            // btnModificado2
             // 
-            this.btnModificado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificado.Location = new System.Drawing.Point(1, 3);
-            this.btnModificado.Name = "btnModificado";
-            this.btnModificado.Size = new System.Drawing.Size(119, 39);
-            this.btnModificado.TabIndex = 13;
-            this.btnModificado.Text = "Escenario Modificados";
-            this.btnModificado.UseVisualStyleBackColor = true;
-            this.btnModificado.Click += new System.EventHandler(this.btnModificado_Click);
+            this.btnModificado2.Location = new System.Drawing.Point(1, 3);
+            this.btnModificado2.Name = "btnModificado2";
+            this.btnModificado2.Size = new System.Drawing.Size(120, 64);
+            this.btnModificado2.TabIndex = 0;
+            this.btnModificado2.Text = "Escenario Modificado";
+            this.btnModificado2.UseVisualStyleBackColor = true;
+            this.btnModificado2.Click += new System.EventHandler(this.btnModificado2_Click);
             // 
             // panel3
             // 
@@ -318,7 +303,7 @@ namespace SARS_CoV_2.Vista
             this.pictureBox4.Image = global::SARS_CoV_2.Properties.Resources.green;
             this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox4.Size = new System.Drawing.Size(40, 44);
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
             // 
@@ -338,7 +323,7 @@ namespace SARS_CoV_2.Vista
             this.pictureBox3.Image = global::SARS_CoV_2.Properties.Resources.yellow;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 44);
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
@@ -358,7 +343,7 @@ namespace SARS_CoV_2.Vista
             this.pictureBox2.Image = global::SARS_CoV_2.Properties.Resources.blue;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 44);
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
@@ -378,9 +363,16 @@ namespace SARS_CoV_2.Vista
             this.pictureBox1.Image = global::SARS_CoV_2.Properties.Resources.red;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 44);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnModificado
+            // 
+            this.btnModificado.Location = new System.Drawing.Point(0, 0);
+            this.btnModificado.Name = "btnModificado";
+            this.btnModificado.Size = new System.Drawing.Size(75, 23);
+            this.btnModificado.TabIndex = 0;
             // 
             // cartesianChart1
             // 
@@ -389,7 +381,6 @@ namespace SARS_CoV_2.Vista
             this.cartesianChart1.Name = "cartesianChart1";
             this.cartesianChart1.Size = new System.Drawing.Size(1408, 464);
             this.cartesianChart1.TabIndex = 0;
-            this.cartesianChart1.Load += new System.EventHandler(this.cartesianChart1_Load);
             // 
             // panel2
             // 
@@ -397,7 +388,7 @@ namespace SARS_CoV_2.Vista
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1408, 512);
+            this.panel2.Size = new System.Drawing.Size(1408, 506);
             this.panel2.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -433,6 +424,7 @@ namespace SARS_CoV_2.Vista
             // 
             // cklConurbacion
             // 
+            this.cklConurbacion.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklConurbacion.FormattingEnabled = true;
             this.cklConurbacion.Items.AddRange(new object[] {
             "Fase 1",
@@ -442,7 +434,7 @@ namespace SARS_CoV_2.Vista
             this.cklConurbacion.Location = new System.Drawing.Point(4, 18);
             this.cklConurbacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklConurbacion.Name = "cklConurbacion";
-            this.cklConurbacion.Size = new System.Drawing.Size(79, 76);
+            this.cklConurbacion.Size = new System.Drawing.Size(79, 68);
             this.cklConurbacion.TabIndex = 1;
             this.cklConurbacion.SelectedIndexChanged += new System.EventHandler(this.cklConurbacion_SelectedIndexChanged);
             // 
@@ -450,9 +442,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(213, 15);
+            this.label5.Size = new System.Drawing.Size(227, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Plan Paso a Paso: La Serena/Coquimbo";
             // 
@@ -469,6 +462,7 @@ namespace SARS_CoV_2.Vista
             // 
             // cklOvalle
             // 
+            this.cklOvalle.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklOvalle.FormattingEnabled = true;
             this.cklOvalle.Items.AddRange(new object[] {
             "Fase 1",
@@ -478,7 +472,7 @@ namespace SARS_CoV_2.Vista
             this.cklOvalle.Location = new System.Drawing.Point(4, 21);
             this.cklOvalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklOvalle.Name = "cklOvalle";
-            this.cklOvalle.Size = new System.Drawing.Size(80, 76);
+            this.cklOvalle.Size = new System.Drawing.Size(80, 68);
             this.cklOvalle.TabIndex = 1;
             this.cklOvalle.SelectedIndexChanged += new System.EventHandler(this.cklOvalle_SelectedIndexChanged);
             // 
@@ -486,9 +480,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 15);
+            this.label6.Size = new System.Drawing.Size(147, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Plan Paso a Paso: Ovalle";
             // 
@@ -505,6 +500,7 @@ namespace SARS_CoV_2.Vista
             // 
             // cklIllapel
             // 
+            this.cklIllapel.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklIllapel.FormattingEnabled = true;
             this.cklIllapel.Items.AddRange(new object[] {
             "Fase 1",
@@ -514,7 +510,7 @@ namespace SARS_CoV_2.Vista
             this.cklIllapel.Location = new System.Drawing.Point(4, 18);
             this.cklIllapel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklIllapel.Name = "cklIllapel";
-            this.cklIllapel.Size = new System.Drawing.Size(80, 76);
+            this.cklIllapel.Size = new System.Drawing.Size(80, 68);
             this.cklIllapel.TabIndex = 1;
             this.cklIllapel.SelectedIndexChanged += new System.EventHandler(this.cklIllapel_SelectedIndexChanged);
             // 
@@ -522,9 +518,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 15);
+            this.label7.Size = new System.Drawing.Size(147, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Plan Paso a Paso: Illapel";
             // 
@@ -541,16 +538,17 @@ namespace SARS_CoV_2.Vista
             // 
             // cklSalamanca
             // 
+            this.cklSalamanca.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklSalamanca.FormattingEnabled = true;
             this.cklSalamanca.Items.AddRange(new object[] {
             "Fase 1",
             "Fase 2",
             "Fase 3",
             "Fase 4"});
-            this.cklSalamanca.Location = new System.Drawing.Point(4, 21);
+            this.cklSalamanca.Location = new System.Drawing.Point(3, 17);
             this.cklSalamanca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklSalamanca.Name = "cklSalamanca";
-            this.cklSalamanca.Size = new System.Drawing.Size(79, 76);
+            this.cklSalamanca.Size = new System.Drawing.Size(79, 68);
             this.cklSalamanca.TabIndex = 1;
             this.cklSalamanca.SelectedIndexChanged += new System.EventHandler(this.cklSalamanca_SelectedIndexChanged);
             // 
@@ -558,9 +556,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 15);
+            this.label8.Size = new System.Drawing.Size(171, 16);
             this.label8.TabIndex = 0;
             this.label8.Text = "Plan Paso a Paso: Salamanca";
             // 
@@ -577,16 +576,17 @@ namespace SARS_CoV_2.Vista
             // 
             // cklMontePatria
             // 
+            this.cklMontePatria.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklMontePatria.FormattingEnabled = true;
             this.cklMontePatria.Items.AddRange(new object[] {
             "Fase 1",
             "Fase 2",
             "Fase 3",
             "Fase 4"});
-            this.cklMontePatria.Location = new System.Drawing.Point(5, 21);
+            this.cklMontePatria.Location = new System.Drawing.Point(3, 17);
             this.cklMontePatria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklMontePatria.Name = "cklMontePatria";
-            this.cklMontePatria.Size = new System.Drawing.Size(80, 76);
+            this.cklMontePatria.Size = new System.Drawing.Size(80, 68);
             this.cklMontePatria.TabIndex = 1;
             this.cklMontePatria.SelectedIndexChanged += new System.EventHandler(this.cklMontePatria_SelectedIndexChanged);
             // 
@@ -594,9 +594,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 15);
+            this.label9.Size = new System.Drawing.Size(187, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "Plan Paso a Paso: Monte Patria";
             // 
@@ -615,24 +616,26 @@ namespace SARS_CoV_2.Vista
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(0, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 15);
+            this.label13.Size = new System.Drawing.Size(138, 16);
             this.label13.TabIndex = 0;
             this.label13.Text = "Variante Predominante";
             // 
             // cklVariante
             // 
+            this.cklVariante.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklVariante.FormattingEnabled = true;
             this.cklVariante.Items.AddRange(new object[] {
             "Alpha",
             "Gamma",
             "Delta",
             "Original"});
-            this.cklVariante.Location = new System.Drawing.Point(3, 23);
+            this.cklVariante.Location = new System.Drawing.Point(3, 17);
             this.cklVariante.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklVariante.Name = "cklVariante";
-            this.cklVariante.Size = new System.Drawing.Size(84, 76);
+            this.cklVariante.Size = new System.Drawing.Size(84, 68);
             this.cklVariante.TabIndex = 1;
             this.cklVariante.SelectedIndexChanged += new System.EventHandler(this.cklVariante_SelectedIndexChanged);
             // 
@@ -649,6 +652,7 @@ namespace SARS_CoV_2.Vista
             // 
             // cklExcepcion
             // 
+            this.cklExcepcion.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklExcepcion.FormattingEnabled = true;
             this.cklExcepcion.Items.AddRange(new object[] {
             "Si",
@@ -656,7 +660,7 @@ namespace SARS_CoV_2.Vista
             this.cklExcepcion.Location = new System.Drawing.Point(4, 21);
             this.cklExcepcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklExcepcion.Name = "cklExcepcion";
-            this.cklExcepcion.Size = new System.Drawing.Size(79, 40);
+            this.cklExcepcion.Size = new System.Drawing.Size(79, 36);
             this.cklExcepcion.TabIndex = 1;
             this.cklExcepcion.SelectedIndexChanged += new System.EventHandler(this.cklExcepcion_SelectedIndexChanged);
             // 
@@ -664,9 +668,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 15);
+            this.label12.Size = new System.Drawing.Size(126, 16);
             this.label12.TabIndex = 0;
             this.label12.Text = "Estado de Excepción";
             // 
@@ -685,14 +690,16 @@ namespace SARS_CoV_2.Vista
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label11.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(103, 15);
+            this.label11.Size = new System.Drawing.Size(110, 16);
             this.label11.TabIndex = 0;
             this.label11.Text = "Pase de Movilidad";
             // 
             // cklMovilidad
             // 
+            this.cklMovilidad.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklMovilidad.FormattingEnabled = true;
             this.cklMovilidad.Items.AddRange(new object[] {
             "Si",
@@ -700,7 +707,7 @@ namespace SARS_CoV_2.Vista
             this.cklMovilidad.Location = new System.Drawing.Point(4, 21);
             this.cklMovilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklMovilidad.Name = "cklMovilidad";
-            this.cklMovilidad.Size = new System.Drawing.Size(56, 40);
+            this.cklMovilidad.Size = new System.Drawing.Size(80, 36);
             this.cklMovilidad.TabIndex = 1;
             this.cklMovilidad.SelectedIndexChanged += new System.EventHandler(this.cklMovilidad_SelectedIndexChanged);
             // 
@@ -717,6 +724,7 @@ namespace SARS_CoV_2.Vista
             // 
             // cklVacaciones
             // 
+            this.cklVacaciones.Font = new System.Drawing.Font("Cooper Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cklVacaciones.FormattingEnabled = true;
             this.cklVacaciones.Items.AddRange(new object[] {
             "Si",
@@ -724,7 +732,7 @@ namespace SARS_CoV_2.Vista
             this.cklVacaciones.Location = new System.Drawing.Point(4, 21);
             this.cklVacaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cklVacaciones.Name = "cklVacaciones";
-            this.cklVacaciones.Size = new System.Drawing.Size(79, 40);
+            this.cklVacaciones.Size = new System.Drawing.Size(79, 36);
             this.cklVacaciones.TabIndex = 1;
             this.cklVacaciones.SelectedIndexChanged += new System.EventHandler(this.cklVacaciones_SelectedIndexChanged);
             // 
@@ -732,9 +740,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(236, 15);
+            this.label10.Size = new System.Drawing.Size(251, 16);
             this.label10.TabIndex = 0;
             this.label10.Text = "Implementación del Permiso de Vacaciones";
             // 
@@ -749,9 +758,19 @@ namespace SARS_CoV_2.Vista
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Día_1,
@@ -764,69 +783,98 @@ namespace SARS_CoV_2.Vista
             this.Día_8,
             this.Día_9,
             this.Día_10});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(220, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1043, 49);
+            this.dataGridView1.Size = new System.Drawing.Size(1043, 52);
             this.dataGridView1.TabIndex = 11;
             // 
             // Día_1
             // 
+            this.Día_1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_1.Frozen = true;
             this.Día_1.HeaderText = "Día_1";
             this.Día_1.MinimumWidth = 6;
             this.Día_1.Name = "Día_1";
             // 
             // Día_2
             // 
+            this.Día_2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_2.Frozen = true;
             this.Día_2.HeaderText = "Día_2";
             this.Día_2.MinimumWidth = 6;
             this.Día_2.Name = "Día_2";
             // 
             // Día_3
             // 
+            this.Día_3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_3.Frozen = true;
             this.Día_3.HeaderText = "Día_3";
             this.Día_3.MinimumWidth = 6;
             this.Día_3.Name = "Día_3";
             // 
             // Día_4
             // 
+            this.Día_4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_4.Frozen = true;
             this.Día_4.HeaderText = "Día_4";
             this.Día_4.MinimumWidth = 6;
             this.Día_4.Name = "Día_4";
             // 
             // Día_5
             // 
+            this.Día_5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_5.Frozen = true;
             this.Día_5.HeaderText = "Día_5";
             this.Día_5.MinimumWidth = 6;
             this.Día_5.Name = "Día_5";
             // 
             // Día_6
             // 
+            this.Día_6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_6.Frozen = true;
             this.Día_6.HeaderText = "Día_6";
             this.Día_6.MinimumWidth = 6;
             this.Día_6.Name = "Día_6";
             // 
             // Día_7
             // 
+            this.Día_7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_7.Frozen = true;
             this.Día_7.HeaderText = "Día_7";
             this.Día_7.MinimumWidth = 6;
             this.Día_7.Name = "Día_7";
             // 
             // Día_8
             // 
+            this.Día_8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_8.Frozen = true;
             this.Día_8.HeaderText = "Día_8";
             this.Día_8.MinimumWidth = 6;
             this.Día_8.Name = "Día_8";
             // 
             // Día_9
             // 
+            this.Día_9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_9.Frozen = true;
             this.Día_9.HeaderText = "Día_9";
             this.Día_9.MinimumWidth = 6;
             this.Día_9.Name = "Día_9";
             // 
             // Día_10
             // 
+            this.Día_10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Día_10.Frozen = true;
             this.Día_10.HeaderText = "Día_10";
             this.Día_10.MinimumWidth = 6;
             this.Día_10.Name = "Día_10";
@@ -835,10 +883,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label14.AutoSize = true;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.Location = new System.Drawing.Point(591, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(237, 23);
+            this.label14.Size = new System.Drawing.Size(238, 25);
             this.label14.TabIndex = 10;
             this.label14.Text = "Numero de Contagios Predichos";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -856,10 +904,10 @@ namespace SARS_CoV_2.Vista
             // 
             this.label15.AutoSize = true;
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.Location = new System.Drawing.Point(636, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 23);
+            this.label15.Size = new System.Drawing.Size(168, 25);
             this.label15.TabIndex = 11;
             this.label15.Text = "Modificar Escenarios";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -868,9 +916,9 @@ namespace SARS_CoV_2.Vista
             // 
             this.panel24.Controls.Add(this.label15);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(0, 512);
+            this.panel24.Location = new System.Drawing.Point(0, 506);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(1408, 23);
+            this.panel24.Size = new System.Drawing.Size(1408, 29);
             this.panel24.TabIndex = 15;
             // 
             // VistaPrediccion
@@ -882,13 +930,13 @@ namespace SARS_CoV_2.Vista
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VistaPrediccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Prediccion";
+            this.Text = "Predicción Curva de Contagios Cuarta Región";
             this.panel1.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -934,7 +982,6 @@ namespace SARS_CoV_2.Vista
         }
 
         #endregion
-        private System.Windows.Forms.Button Entrenar;
         private System.Windows.Forms.Button Exportar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -983,10 +1030,10 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckedListBox cklVariante;
         private System.Windows.Forms.Button btnModificado;
+        //private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button button2;
@@ -1005,5 +1052,6 @@ namespace SARS_CoV_2.Vista
         private System.Windows.Forms.DataGridViewTextBoxColumn Día_8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Día_9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Día_10;
+        private System.Windows.Forms.Button btnModificado2;
     }
 }

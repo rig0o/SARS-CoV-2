@@ -29,6 +29,7 @@ namespace SARS_CoV_2.Vista
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaMenuPrincipal));
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace SARS_CoV_2.Vista
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(0, 46);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(845, 46);
@@ -63,6 +65,7 @@ namespace SARS_CoV_2.Vista
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(845, 46);
@@ -98,9 +101,10 @@ namespace SARS_CoV_2.Vista
             this.ClientSize = new System.Drawing.Size(845, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VistaMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VistaMenuPrincipal";
+            this.Text = "SARS-CoV-2";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
