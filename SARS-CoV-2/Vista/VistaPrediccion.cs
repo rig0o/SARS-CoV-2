@@ -256,6 +256,7 @@ namespace SARS_CoV_2.Vista
             DataRepository repo = new DataRepository();
             var lst = repo.GetDataRealista();
 
+
             int ovalle = cklOvalle.SelectedIndex;
             int conurbacion = cklConurbacion.SelectedIndex;
             int illapel = cklIllapel.SelectedIndex;

@@ -20,6 +20,18 @@ namespace SARS_CoV_2
         [STAThread]
         static void Main()
         {
+
+            //DataRepository repo = new DataRepository();
+            //var lst = repo.GetDataRealista();
+            //var nn = Fit.Load();
+            //var salida = nn.FeedForward(lst);
+
+            //for (int i = 0; i < salida.Count; i++)
+            //{
+            //    salida[i][0, 0] = DataRepository.DesNorm(salida[i][0, 0]);
+            //    Debug.WriteLine(salida[i][0, 0]);
+            //}
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

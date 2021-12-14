@@ -51,7 +51,7 @@ namespace SARS_CoV_2.Database
                                               Delta = d.Delta
 
                                           };
-            lst = lst.TakeLast(10);
+            lst = lst.TakeLast(15);
             //lst = lst.Take(10);
             return lst.ToList();
         }
@@ -89,7 +89,7 @@ namespace SARS_CoV_2.Database
                                               Delta = d.Delta
 
                                           };
-            lst = lst.TakeLast(10);
+            lst = lst.TakeLast(15);
             //lst = lst.Take(10);
             return lst.ToList();
         }
@@ -107,7 +107,7 @@ namespace SARS_CoV_2.Database
                                               PcrDiarios = 0,
                                               MediaMovil = 0,
                                               Refectivo = 0,
-                                              PositividadPcr = d.PositividadPcr,
+                                              PositividadPcr = 0.1,//d.PositividadPcr,
                                               TasaTest = d.TasaTest,
                                               PppConurbacioLaSerenaCoquimbo = d.PppConurbacioLaSerenaCoquimbo,
                                               PppOvalle = d.PppOvalle,
@@ -127,7 +127,7 @@ namespace SARS_CoV_2.Database
                                               Delta = d.Delta
 
                                           };
-            lst = lst.TakeLast(10);
+            lst = lst.TakeLast(15);
             //lst = lst.Take(10);
             return lst.ToList();
         }
@@ -199,10 +199,11 @@ namespace SARS_CoV_2.Database
             List<DateTimePoint> lst = new List<DateTimePoint>();
             var listafechas = GetDataRealista();
 
+
             DateTime lastDay = listafechas.Last<DatasetDto>().Fecha;
             lastDay = lastDay.AddDays(1);
 
-            for (int i = 0; i < predict.Count; i++)
+            for (int i = 5; i < predict.Count; i++)
             {
                 lst.Add(new DateTimePoint
                 {
